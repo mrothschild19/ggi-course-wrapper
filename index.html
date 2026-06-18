@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head><meta charset='utf-8'><title>GGI Wrapper — Brand v4 (verified)</title>
+<style id="ggi-brandfix">
+  /* ===== VERIFIED GGI brand: white chrome, royal navy #1A45A3, gold rule ===== */
+  body { background:#FFFFFF !important; color:#22314A; }
+  .lms-brand,.lms-header,header { background:#FFFFFF !important; border-bottom:3px solid #D9A41E !important; }
+  .lms-brandtext,.lms-brandtext * { color:#1A45A3 !important; }
+  .lms-logo{ background:transparent !important; }
+  .lms-crumb{ color:#7184A0 !important; }
+  .lms-sidebar,.lms-side,aside{ background:#F4F7FD !important; border-right:1px solid #D3DEF2 !important; }
+  .lt-tab{ color:#1A45A3 !important; }
+  .lt-tab.active{ background:#1A45A3 !important; color:#fff !important; }
+  h1,h2,h3,.lms-h,.lt-title{ color:#1A45A3 !important; }
+  /* Verse of the Day + Ask box accents in brand */
+  .ggi-votd,.ggi-votd-label{ color:#1A45A3 !important; }
+  .ggi-votd-label{ background:transparent !important; }
+  .rb-ask-head{ color:#1A45A3 !important; }
+  .rb-ask-btn{ background:#1A45A3 !important; }
+  .rb-ask-input:focus{ border-color:#1A45A3 !important; }
+  .rb-ask-out{ background:#F4F7FD !important; border-color:#D3DEF2 !important; }
+  /* Submit = brand navy; Continue stays green */
+  .es-submit{ background:#1A45A3 !important; color:#fff !important; }
+  a{ color:#1A45A3; }
+</style>
+</head>
+<body style='margin:0'>
+<!-- ================================================================ -->
+<!-- GLOBAL GRIEF INSTITUTE — LMS WRAPPER for GAMMA EMBEDS           -->
+<!-- (Wix Editor: Add → Embed → Embed HTML → "Enter Code")           -->
+<!-- Makes a Gamma course deck feel like it's inside a branded LMS.   -->
+<!--                                                                  -->
+<!-- LAYOUT: left = course/module nav · center = Gamma deck           -->
+<!--         right = lesson resources sidebar                         -->
+<!--                                                                  -->
+<!-- >>> CHANGE PER LESSON <<<                                        -->
+<!--   1. GAMMA_EMBED_URL in the iframe (Gamma: Share → Embed)        -->
+<!--   2. Left sidebar lesson states + the badge/title/breadcrumb     -->
+<!--   3. RIGHT sidebar: Suggested Reading + Relevant Videos lists    -->
+<!--   4. Submit / Handout / Office-Hours links                      -->
+<!-- ================================================================ -->
+<div class="lms">
+
+  <!-- ===================== TOP BAR (ACADEMY BRANDING) ===================== -->
+  <header class="lms-topbar">
+    <div class="lms-brand">
+      <img class="lms-logo" src="https://media.base44.com/images/public/6a1efd8efa1513ab48247266/66f4809cf_FINALGlobalGriefInstituteLOGO1.png" alt="Global Grief Institute">
+      <div class="lms-brandtext">
+        <span class="lms-acad">Global Grief Institute</span>
+        <span class="lms-tag">End-of-Life Coaching Certification</span>
+      </div>
+    </div>
+    <nav class="lms-topnav">
+      <a class="active">Dashboard</a>
+      <a>My Courses</a>
+      <a>Grades</a>
+      <a>Help</a>
+    </nav>
+    <!-- ===================== DAILY VERSE (top-right, auto-updates daily via RSS feed) ===================== -->
+    <a class="ggi-votd" id="ggiVotd" href="#" target="_blank" rel="noopener" title="Today's Verse of the Day — Bible Gateway">
+      <span class="ggi-votd-label">✨ Verse of the Day</span>
+      <span class="ggi-votd-text" id="ggiVotdText">Loading today’s verse…</span>
+      <span class="ggi-votd-ref" id="ggiVotdRef"></span>
+    </a>
+    <div class="lms-user">
+      <span class="lms-avatar">S</span>
+      <span class="lms-username">Student</span>
+    </div>
+  </header>
+
+  <div class="lms-body">
+
+    <!-- ===================== LEFT SIDEBAR (COURSE + MODULES) ===================== -->
+    <aside class="lms-sidebar">
+      <div class="lms-coursecard">
+        <div class="lms-coursename">Foundations of End-of-Life Coaching</div>
+        <div class="lms-progressbar"><span style="width:11%"></span></div>
+        <div class="lms-progresstext">11% complete · 1 of 9 lessons</div>
+      </div>
+
+      <div class="lms-modtitle">COURSE CONTENT</div>
+      <div class="mod-head open">Module 1 · The Ministry of Presence</div>
+      <div class="si done">✓ 1.1 Being Fully Present</div>
+      <div class="si current">▶ 1.2 The Discipline of Listening</div>
+      <div class="si locked">🔒 1.3 Holding Sacred Silence</div>
+      <div class="mod-head">Module 2 · Walking With the Dying</div>
+      <div class="mod-head">Module 3 · Grief &amp; the Family System</div>
+      <div class="mod-head">Module 4 · The Coach's Own Soul Care</div>
+    </aside>
+
+    <!-- ===================== CENTER PANEL (GAMMA DECK) ===================== -->
+    <main class="lms-main">
+      <div class="lms-crumb">Foundations of End-of-Life Coaching › Module 1 › Lesson 1.1</div>
+      <div class="es-badge">MODULE 1 · Lesson 1.1</div>
+      <h1 class="es-title">Being Fully Present: The First Skill of the End-of-Life Coach</h1>
+
+      <!-- ===== THE GAMMA DECK (replace src with your published Gamma embed URL) ===== -->
+      <div class="gamma-frame">
+        <iframe
+          src="GAMMA_EMBED_URL"
+          title="Gamma lesson deck"
+          frameborder="0"
+          allow="fullscreen"
+          allowfullscreen></iframe>
+      </div>
+
+      <!-- ===================== SUBMIT YOUR WORK BANNER ===================== -->
+      <a class="es-submit" href="https://docs.google.com/forms/d/e/1FAIpQLSempv0GyGaMueoDkb4aLNtsnbai_XNLePnFKbfef1dygab0mw/viewform" target="_blank" rel="noopener">📬 SUBMIT YOUR WORK HERE</a>
+
+      <a class="es-continue" href="#" target="_blank" rel="noopener">CONTINUE TO LESSON 1.2 →</a>
+
+      <!-- ===================== CRISIS FOOTER ===================== -->
+      <div class="es-crisis">
+        <strong>In crisis or thinking about suicide?</strong>
+        Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline, 24/7) ·
+        Questions? <a href="mailto:info@globalgriefinstitute.com">info@globalgriefinstitute.com</a>
+      </div>
+    </main>
+
+    <!-- ===================== RIGHT SIDEBAR (LESSON RESOURCES) ===================== -->
+    <aside class="lms-rightbar">
+      <div class="rb-title">Lesson Resources</div>
+
+      <!-- Quick-action buttons -->
+      <a class="rb-btn" href="HANDOUT_PDF_URL" target="_blank" rel="noopener">📥 Download Handout</a>
+      <a class="rb-btn" href="OFFICE_HOURS_URL" target="_blank" rel="noopener">🗓️ Book Office Hours</a>
+
+      <!-- ===== SUGGESTED READING (edit the list per lesson) ===== -->
+      <div class="rb-card">
+        <h4>📖 Suggested Reading</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener"><b>On Death &amp; Dying</b><br><span>Elisabeth Kübler-Ross · the five stages</span></a></li>
+          <li><a href="#" target="_blank" rel="noopener"><b>The Wild Edge of Sorrow</b><br><span>Francis Weller · grief as sacred work</span></a></li>
+          <li><a href="#" target="_blank" rel="noopener"><b>A Grief Observed</b><br><span>C.S. Lewis · faith in the valley</span></a></li>
+        </ul>
+      </div>
+
+      <!-- ===== RELEVANT VIDEOS (edit the list per lesson) ===== -->
+      <div class="rb-card">
+        <h4>🎬 Relevant Videos</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener"><b>The Power of Presence</b><br><span>14 min · TEDx</span></a></li>
+          <li><a href="#" target="_blank" rel="noopener"><b>What the Dying Really Need</b><br><span>9 min · hospice chaplain</span></a></li>
+          <li><a href="#" target="_blank" rel="noopener"><b>Holding Space: A Guide</b><br><span>11 min · workshop clip</span></a></li>
+        </ul>
+      </div>
+
+      <!-- ===== SUPPORT & CONNECTION (swap the links) ===== -->
+      <div class="rb-subtitle">Support &amp; Connection</div>
+      <!-- Replace href with your cohort forum / Facebook group / Discord -->
+      <a class="rb-btn" href="COMMUNITY_URL" target="_blank" rel="noopener">💬 Discussion / Community</a>
+      <!-- Replace href with your Calendly office-hours link -->
+      <a class="rb-btn" href="OFFICE_HOURS_URL" target="_blank" rel="noopener">🗓️ Book Office Hours</a>
+      <!-- ===== ASK CLAUDE (instant AI tutor — answers from a server-side function) ===== -->
+      <div class="rb-ask">
+        <div class="rb-ask-head">❓ Ask a Question</div>
+        <div class="rb-ask-sub">Get an instant answer about this lesson.</div>
+        <textarea id="ggiAskInput" class="rb-ask-input" rows="3" placeholder="Type your question…"></textarea>
+        <button id="ggiAskBtn" class="rb-ask-btn" onclick="ggiAsk()">Ask</button>
+        <div id="ggiAskOut" class="rb-ask-out" style="display:none"></div>
+        <div class="rb-ask-note">AI guidance for learning — not medical, legal, or crisis support.</div>
+      </div>
+
+      <!-- ===== KEEP GROWING (soft upsell — reads as a recommendation, not an ad) ===== -->
+      <!-- Per program: change the title, the one-line "why", the member price, and the href. -->
+      <div class="rb-grow">
+        <div class="rb-grow-label">✦ Recommended For You</div>
+        <div class="rb-grow-title">Grief &amp; the Family System</div>
+        <div class="rb-grow-desc">A natural next step after Presence — guide whole families through loss.</div>
+        <div class="rb-grow-price"><span class="rb-grow-now">Member rate</span> · save 30% as a current student</div>
+        <a class="rb-grow-btn" href="ENROLL_URL" target="_blank" rel="noopener">Explore this path →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ===================== FOOTER: RECOMMENDED COURSES (FOMO row) ===================== -->
+  <!-- Per course: edit the 4 banner cards (title, tag, member price, href). -->
+  <div class="lms-foot">
+    <div class="lms-foot-head">
+      <span class="lms-foot-title">✦ Recommended Courses For You</span>
+      <span class="lms-foot-sub">Keep growing — members save on every track</span>
+    </div>
+    <div class="lms-foot-row">
+
+      <a class="cc" href="ENROLL_URL_1" target="_blank" rel="noopener">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=600&q=70')"></div>
+        <div class="cc-body">
+          <div class="cc-tag">CERTIFICATION</div>
+          <div class="cc-name">Grief &amp; the Family System</div>
+          <div class="cc-meta">8 modules · <span class="cc-save">30% member rate</span></div>
+        </div>
+        <div class="cc-flag">Enrolling now →</div>
+      </a>
+
+      <a class="cc" href="ENROLL_URL_2" target="_blank" rel="noopener">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=70')"></div>
+        <div class="cc-body">
+          <div class="cc-tag">PAIN TO PEACE</div>
+          <div class="cc-name">When God Feels Far</div>
+          <div class="cc-meta">6 modules · <span class="cc-save">30% member rate</span></div>
+        </div>
+        <div class="cc-flag">Most students add this →</div>
+      </a>
+
+      <a class="cc" href="ENROLL_URL_3" target="_blank" rel="noopener">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&q=70')"></div>
+        <div class="cc-body">
+          <div class="cc-tag">PAIN TO PEACE</div>
+          <div class="cc-name">Beauty From Ashes</div>
+          <div class="cc-meta">6 modules · <span class="cc-save">30% member rate</span></div>
+        </div>
+        <div class="cc-flag">New cohort →</div>
+      </a>
+
+      <a class="cc" href="ENROLL_URL_4" target="_blank" rel="noopener">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=70')"></div>
+        <div class="cc-body">
+          <div class="cc-tag">CERTIFICATION</div>
+          <div class="cc-name">The Coach's Own Soul Care</div>
+          <div class="cc-meta">5 modules · <span class="cc-save">30% member rate</span></div>
+        </div>
+        <div class="cc-flag">Almost full →</div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  *{box-sizing:border-box;}
+  /* ===== GLOBAL GRIEF INSTITUTE PALETTE (from logo) ===== */
+  /*  deep teal-blue #1A45A3 · antique gold #D9A41E · warm cream #FFFFFF  */
+  .lms{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#22314A;
+    background:#F4F7FD;border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.12);
+    max-width:1280px;margin:0 auto;}
+
+  /* TOP BAR */
+  .lms-topbar{display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(180deg,#1A45A3,#123379);color:#fff;padding:10px 22px;
+    border-bottom:3px solid #D9A41E;}
+  .lms-brand{display:flex;align-items:center;gap:13px;}
+  .lms-logo{width:52px;height:52px;object-fit:contain;border-radius:8px;background:#FFFFFF;padding:3px;}
+  .lms-brandtext{display:flex;flex-direction:column;line-height:1.2;}
+  .lms-acad{font-weight:800;font-size:18px;letter-spacing:.3px;font-family:Georgia,serif;}
+  .lms-tag{font-size:12px;color:#D9A41E;}
+  .lms-topnav{display:flex;gap:26px;}
+  .lms-topnav a{color:#D3DEF2;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;}
+  .lms-topnav a.active,.lms-topnav a:hover{color:#fff;border-bottom:2px solid #D9A41E;padding-bottom:3px;}
+  .lms-user{display:flex;align-items:center;gap:9px;}
+  .lms-avatar{width:34px;height:34px;border-radius:50%;background:#D9A41E;color:#123379;
+    font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .lms-username{font-size:14px;font-weight:600;}
+
+  /* BODY LAYOUT (3 columns) */
+  .lms-body{display:flex;align-items:stretch;}
+
+  /* FOOTER — RECOMMENDED COURSES (FOMO) */
+  .lms-foot{background:linear-gradient(180deg,#123379,#1c3840);padding:20px 26px 24px;border-top:3px solid #D9A41E;}
+  .lms-foot-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .lms-foot-title{font-family:Georgia,serif;font-weight:800;font-size:18px;color:#fff;letter-spacing:.3px;}
+  .lms-foot-sub{font-size:12.5px;color:#D9A41E;}
+  .lms-foot-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .cc{display:flex;flex-direction:column;background:#fff;border-radius:11px;overflow:hidden;text-decoration:none;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s;}
+  .cc:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35);}
+  .cc-img{height:84px;background-size:cover;background-position:center;}
+  .cc-body{padding:11px 12px 4px;}
+  .cc-tag{font-size:9.5px;letter-spacing:1px;font-weight:800;color:#D9A41E;margin-bottom:4px;}
+  .cc-name{font-family:Georgia,serif;font-weight:800;font-size:14.5px;color:#1A45A3;line-height:1.25;margin-bottom:6px;}
+  .cc-meta{font-size:11.5px;color:#7184A0;}
+  .cc-save{color:#2E8B57;font-weight:700;}
+  .cc-flag{margin-top:auto;background:#D9A41E;color:#123379;font-weight:800;font-size:12px;text-align:center;padding:8px;letter-spacing:.3px;}
+  .lms-sidebar{width:280px;flex:0 0 280px;background:#fff;border-right:1px solid #D3DEF2;padding:20px 16px;}
+  .lms-coursecard{background:#FFFFFF;border:1px solid #D3DEF2;border-radius:10px;padding:14px;margin-bottom:18px;}
+  .lms-coursename{font-weight:800;font-size:15px;margin-bottom:10px;color:#1A45A3;}
+  .lms-progressbar{height:8px;background:#EAF0FB;border-radius:6px;overflow:hidden;}
+  .lms-progressbar span{display:block;height:100%;background:#D9A41E;}
+  .lms-progresstext{font-size:12px;color:#7184A0;margin-top:6px;}
+  .lms-modtitle{font-size:11px;letter-spacing:1px;color:#7184A0;font-weight:700;margin:6px 4px 10px;}
+  .mod-head{font-weight:700;font-size:14px;padding:10px 12px;border-radius:8px;background:#F4F7FD;cursor:pointer;margin-bottom:6px;}
+  .mod-head.open{background:#1A45A3;color:#fff;}
+  .si{display:flex;align-items:center;gap:9px;font-size:13.5px;padding:9px 12px;border-radius:8px;cursor:pointer;margin:2px 0;}
+  .si.done{color:#2E8B57;}
+  .si.current{background:#FBF1D6;color:#1A45A3;font-weight:700;}
+  .si.locked{color:#7184A0;}
+
+  /* CENTER PANEL */
+  .lms-main{flex:1;padding:26px 30px;background:#FFFFFF;min-width:0;}
+  .lms-crumb{font-size:12.5px;color:#7184A0;margin-bottom:16px;}
+  .es-badge{display:inline-block;background:#1A45A3;color:#fff;font-weight:700;font-size:13px;
+    letter-spacing:.5px;padding:5px 13px;border-radius:6px;margin-bottom:12px;}
+  .es-title{font-size:25px;line-height:1.25;color:#1A45A3;margin:0 0 18px;font-family:Georgia,serif;}
+
+  /* GAMMA DECK EMBED */
+  .gamma-frame{position:relative;width:100%;padding-bottom:62%;height:0;overflow:hidden;
+    border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.16);border:1px solid #D3DEF2;background:#fff;margin-bottom:20px;}
+  .gamma-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+  /* SUBMIT banner */
+  .es-submit{display:block;width:100%;text-align:center;background:#1A45A3;color:#fff !important;
+    font-weight:800;font-size:17px;letter-spacing:.5px;text-decoration:none;padding:15px;border-radius:10px;
+    margin-bottom:14px;box-shadow:0 3px 10px rgba(44,85,96,.3);transition:filter .15s;}
+  .es-submit:hover{filter:brightness(1.1);}
+
+  .es-continue{display:block;width:100%;text-align:center;background:#D9A41E;color:#123379 !important;
+    font-weight:800;font-size:19px;letter-spacing:1px;text-decoration:none;padding:17px;border-radius:10px;
+    box-shadow:0 4px 12px rgba(192,138,46,.4);transition:filter .15s;}
+  .es-continue:hover{filter:brightness(1.07);}
+
+  /* Crisis footer */
+  .es-crisis{margin-top:18px;padding:13px 16px;background:#FFFFFF;border:1px solid #D3DEF2;border-radius:10px;
+    font-size:13px;color:#7184A0;text-align:center;line-height:1.6;}
+  .es-crisis a{color:#1A45A3;font-weight:700;text-decoration:none;}
+  .es-crisis a:hover{text-decoration:underline;}
+
+  /* ===== RIGHT SIDEBAR (RESOURCES) ===== */
+  .lms-rightbar{width:268px;flex:0 0 268px;background:#fff;border-left:1px solid #D3DEF2;padding:22px 16px;}
+  .rb-title{font-size:12px;letter-spacing:1px;font-weight:700;color:#7184A0;text-transform:uppercase;margin:0 2px 14px;}
+  .rb-subtitle{font-size:12px;letter-spacing:1px;font-weight:700;color:#7184A0;text-transform:uppercase;margin:22px 2px 12px;padding-top:16px;border-top:1px solid #EAF0FB;}
+  .rb-btn{display:block;text-align:center;background:#fff;border:1.5px solid #D3DEF2;color:#1A45A3;
+    font-weight:700;font-size:14px;padding:12px 10px;border-radius:10px;text-decoration:none;
+    margin-bottom:10px;box-shadow:0 2px 6px rgba(0,0,0,.05);transition:all .15s;}
+  .rb-btn:hover{background:#FFFFFF;border-color:#D9A41E;transform:translateY(-1px);}
+  .rb-card{background:#FFFFFF;border:1px solid #D3DEF2;border-radius:10px;padding:14px 14px 6px;margin-top:14px;}
+  .rb-card h4{margin:0 0 8px;color:#1A45A3;font-size:15px;}
+  .rb-card ul{margin:0;padding:0;list-style:none;}
+  .rb-card li{border-bottom:1px solid #EAF0FB;}
+  .rb-card li:last-child{border-bottom:0;}
+  .rb-card a{display:block;padding:9px 2px;color:#1A45A3;text-decoration:none;font-size:13.5px;line-height:1.35;}
+  .rb-card a:hover{color:#D9A41E;}
+  .rb-card span{color:#7184A0;font-size:12px;}
+
+  /* ===== SOFT UPSELL CARD ===== */
+  .rb-grow{margin-top:22px;background:linear-gradient(160deg,#FFFFFF,#FFFFFF);border:1px solid #D3DEF2;
+    border-radius:12px;padding:16px 15px;box-shadow:0 2px 8px rgba(192,138,46,.10);}
+  .rb-grow-label{font-size:11px;letter-spacing:.8px;font-weight:700;color:#D9A41E;text-transform:uppercase;margin-bottom:7px;}
+  .rb-grow-title{font-family:Georgia,serif;font-weight:800;font-size:16px;color:#1A45A3;margin-bottom:5px;line-height:1.25;}
+  .rb-grow-desc{font-size:12.5px;color:#7184A0;line-height:1.45;margin-bottom:10px;}
+  .rb-grow-price{font-size:11.5px;color:#7184A0;margin-bottom:12px;}
+  .rb-grow-now{font-weight:700;color:#2E8B57;}
+  .rb-grow-btn{display:block;text-align:center;background:#D9A41E;color:#fff !important;font-weight:700;
+    font-size:13.5px;text-decoration:none;padding:11px;border-radius:9px;box-shadow:0 3px 9px rgba(192,138,46,.3);transition:filter .15s;}
+  .rb-grow-btn:hover{filter:brightness(1.07);}
+
+  /* RESPONSIVE */
+  @media (max-width:1040px){
+    .lms-body{flex-wrap:wrap;}
+    .lms-foot-row{grid-template-columns:repeat(2,1fr);}
+    .lms-rightbar{width:100%;flex:1 1 100%;border-left:0;border-top:1px solid #D3DEF2;}
+    .lms-rightbar .rb-card{display:inline-block;width:48%;vertical-align:top;margin-right:2%;}
+  }
+  @media (max-width:780px){
+    .lms-body{flex-direction:column;}
+    .lms-foot-row{grid-template-columns:1fr;}
+    .lms-sidebar{width:100%;flex:none;border-right:0;border-bottom:1px solid #D3DEF2;}
+    .lms-topnav{display:none;}
+    .lms-main{padding:20px 18px;}
+    .gamma-frame{padding-bottom:90%;}
+    .lms-rightbar .rb-card{width:100%;margin-right:0;}
+  }
+  /* ===== ASK CLAUDE BOX ===== */
+  .rb-ask{margin-top:14px;background:#fff;border:1.5px solid #D3DEF2;border-radius:10px;padding:13px 13px 11px;}
+  .rb-ask-head{font-weight:800;color:#1A45A3;font-size:14px;margin-bottom:2px;}
+  .rb-ask-sub{font-size:11.5px;color:#7184A0;margin-bottom:9px;}
+  .rb-ask-input{width:100%;border:1px solid #D3DEF2;border-radius:8px;padding:8px;font-family:inherit;font-size:13px;resize:vertical;color:#22314A;}
+  .rb-ask-input:focus{outline:none;border-color:#D9A41E;}
+  .rb-ask-btn{display:block;width:100%;margin-top:8px;background:#1A45A3;color:#fff;border:0;font-weight:700;font-size:14px;padding:10px;border-radius:8px;cursor:pointer;transition:filter .15s;}
+  .rb-ask-btn:hover{filter:brightness(1.12);}
+  .rb-ask-btn:disabled{opacity:.6;cursor:wait;}
+  .rb-ask-out{margin-top:10px;background:#FFFFFF;border:1px solid #D3DEF2;border-radius:8px;padding:11px;font-size:13px;line-height:1.5;color:#22314A;white-space:pre-wrap;}
+  .rb-ask-note{font-size:10.5px;color:#7184A0;margin-top:8px;line-height:1.35;}
+
+  /* ---- Daily Verse of the Day pill (top-right) ---- */
+  .ggi-votd{display:flex;flex-direction:column;justify-content:center;max-width:300px;
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+    border-left:3px solid #D9A41E;border-radius:8px;padding:7px 13px;margin-right:16px;
+    text-decoration:none;line-height:1.3;transition:background .2s;}
+  .ggi-votd:hover{background:rgba(255,255,255,.18);}
+  .ggi-votd-label{color:#D9A41E;font-size:10px;font-weight:700;letter-spacing:.6px;
+    text-transform:uppercase;margin-bottom:2px;}
+  .ggi-votd-text{color:#FFFFFF;font-size:12px;font-style:italic;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .ggi-votd-ref{color:#D9A41E;font-size:11px;font-weight:700;margin-top:2px;}
+  @media (max-width:900px){.ggi-votd{display:none;}}
+</style>
+
+<script>
+  // Calls the askClaude backend function. The API key stays server-side.
+  var GGI_ASK_URL = "https://6a1efd8efa1513ab48247266.base44.app/api/apps/6a1efd8efa1513ab48247266/functions/askClaude";
+  function ggiAsk(){
+    var inp=document.getElementById('ggiAskInput');
+    var btn=document.getElementById('ggiAskBtn');
+    var out=document.getElementById('ggiAskOut');
+    var q=(inp.value||'').trim();
+    if(!q){inp.focus();return;}
+    // lesson title from the page (falls back gracefully)
+    var lessonEl=document.querySelector('.es-title');
+    var lesson=lessonEl?lessonEl.textContent.trim():'this lesson';
+    btn.disabled=true; btn.textContent='Thinking…';
+    out.style.display='block'; out.textContent='…';
+    fetch(GGI_ASK_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({question:q,lesson:lesson})
+    }).then(function(r){return r.json();}).then(function(d){
+      out.textContent=d.answer || (d.error?('Sorry — '+d.error):'Sorry, no answer came back.');
+    }).catch(function(){
+      out.textContent='Sorry — something went wrong. Please try again or email info@globalgriefinstitute.com.';
+    }).finally(function(){
+      btn.disabled=false; btn.textContent='Ask';
+    });
+  }
+</script>
+
+<script>
+  // Daily Verse of the Day — pulls from the Bible Gateway feed (via GGI proxy) and
+  // auto-refreshes every day. No setup needed; the verse changes on its own daily.
+  (function(){
+    var VOTD_URL = "https://6a1efd8efa1513ab48247266.base44.app/api/apps/6a1efd8efa1513ab48247266/functions/verseOfTheDay?version=NIV";
+    fetch(VOTD_URL)
+      .then(function(r){ return r.json(); })
+      .then(function(v){
+        if(!v || !v.text){ return; }
+        document.getElementById("ggiVotdText").textContent = "\u201C" + v.text + "\u201D";
+        document.getElementById("ggiVotdRef").textContent = v.reference + " (" + v.version + ")";
+        if(v.permalink){ document.getElementById("ggiVotd").href = v.permalink; }
+      })
+      .catch(function(){
+        document.getElementById("ggiVotdText").textContent = "Be still, and know that I am God.";
+        document.getElementById("ggiVotdRef").textContent = "Psalm 46:10";
+      });
+  })();
+</script>
+
+</body>
+</html>
