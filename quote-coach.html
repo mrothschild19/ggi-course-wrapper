@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Quote Coach — Business of the Trade</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#0E1726;color:#1a2233;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px;}
+  .wrap{width:100%;max-width:680px;}
+  .head{text-align:center;color:#fff;margin-bottom:22px;}
+  .head .badge{display:inline-block;background:#D9A41E;color:#11203a;font-weight:800;font-size:11px;
+    letter-spacing:1.5px;padding:5px 12px;border-radius:30px;margin-bottom:12px;}
+  .head h1{font-family:Georgia,serif;font-size:30px;line-height:1.15;}
+  .head p{color:#9DB2D4;font-size:14.5px;margin-top:8px;}
+  .card{background:#fff;border-radius:16px;padding:22px;box-shadow:0 16px 50px rgba(0,0,0,.35);}
+  label{display:block;font-weight:700;font-size:13px;color:#33415c;margin:14px 0 6px;}
+  .row{display:flex;gap:12px;}
+  .row>div{flex:1;}
+  input,select,textarea{width:100%;border:1px solid #ccd6e6;border-radius:10px;padding:11px 12px;
+    font-size:14.5px;font-family:inherit;color:#1a2233;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#D9A41E;box-shadow:0 0 0 3px rgba(217,164,30,.15);}
+  textarea{resize:vertical;min-height:90px;}
+  .go{margin-top:18px;width:100%;background:#1A45A3;color:#fff;border:0;border-radius:11px;
+    padding:14px;font-size:16px;font-weight:800;cursor:pointer;transition:filter .15s;}
+  .go:hover{filter:brightness(1.1);}
+  .go:disabled{opacity:.6;cursor:wait;}
+  .out{margin-top:20px;display:none;}
+  .out.show{display:block;}
+  .out-box{background:#F4F7FD;border:1px solid #D3DEF2;border-left:5px solid #D9A41E;border-radius:12px;
+    padding:18px 20px;font-size:14.5px;line-height:1.6;white-space:pre-wrap;color:#22314A;}
+  .out-box h1,.out-box h2,.out-box h3{font-family:Georgia,serif;color:#1A45A3;}
+  .muted{color:#7184A0;font-size:11.5px;text-align:center;margin-top:14px;line-height:1.4;}
+  .spin{text-align:center;color:#1A45A3;font-weight:700;padding:20px;}
+  .ex{font-size:12px;color:#7184A0;margin-top:6px;}
+  .ex a{color:#1A45A3;cursor:pointer;text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="badge">BUSINESS OF THE TRADE · AI TOOL</span>
+    <h1>AI Quote Coach</h1>
+    <p>Describe a job. Get a professional estimate breakdown — and learn the reasoning behind the price.</p>
+  </div>
+  <div class="card">
+    <div class="row">
+      <div>
+        <label>Trade</label>
+        <select id="trade">
+          <option>HVAC</option><option>Electrical</option><option>Plumbing</option>
+          <option>Welding</option><option>General Contracting</option><option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label>Region (optional)</label>
+        <input id="region" placeholder="e.g. Ohio, Dallas TX">
+      </div>
+    </div>
+    <label>Describe the job</label>
+    <textarea id="job" placeholder="e.g. Replace a 3-ton central AC condenser, single-story home, existing lineset and ductwork are fine, easy access."></textarea>
+    <div class="ex">Try: <a onclick="ex(this)">Install 5 recessed lights in a finished living room ceiling</a></div>
+    <button class="go" id="go" onclick="ask()">Get My Estimate &amp; Coaching →</button>
+    <div class="out" id="out"></div>
+    <div class="muted">Teaching estimates only — actual prices vary by region & supplier. Powered by your in-house AI.</div>
+  </div>
+</div>
+<script>
+  var URL = "https://6a29998ad76d8ed3d3b24202.base44.app/api/apps/6a29998ad76d8ed3d3b24202/functions/quoteCoach";
+  function ex(a){document.getElementById('trade').value='Electrical';document.getElementById('job').value=a.textContent;}
+  function ask(){
+    var job=document.getElementById('job').value.trim();
+    var out=document.getElementById('out'), btn=document.getElementById('go');
+    if(!job){document.getElementById('job').focus();return;}
+    out.className='out show';
+    out.innerHTML='<div class="spin">Quote Coach is working out your estimate…</div>';
+    btn.disabled=true;
+    fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({job:job,trade:document.getElementById('trade').value,region:document.getElementById('region').value})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.answer){out.innerHTML='<div class="out-box">'+d.answer.replace(/[<>]/g,function(c){return c==='<'?'&lt;':'&gt;';})+'</div>';}
+      else{out.innerHTML='<div class="out-box">Sorry — '+(d.error||'something went wrong')+'</div>';}
+    }).catch(function(){
+      out.innerHTML='<div class="out-box">Network error. Please try again.</div>';
+    }).finally(function(){btn.disabled=false;});
+  }
+</script>
+</body>
+</html>
