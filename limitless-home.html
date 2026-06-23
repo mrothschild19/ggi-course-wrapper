@@ -1,0 +1,975 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIMITLESS by Veritas Academy — School Is Broken. We Reinvented It.</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Helvetica Neue',Arial,sans-serif;background:#06122a}
+.hero{padding-top:80px;position:relative;min-height:680px;overflow:hidden;display:flex;align-items:center;
+  background:radial-gradient(1200px 800px at 82% 46%,#1d4070 0%,#13315a 38%,#0a1d39 68%,#050f24 100%)}
+.label{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:999;
+  background:#d6203c;color:#fff;font-weight:800;font-size:12px;letter-spacing:.12em;
+  padding:6px 16px;border-radius:30px;text-transform:uppercase}
+.field{position:absolute;inset:0;overflow:hidden}
+.tile{position:absolute;padding:5px 10px;border-radius:30px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+  color:#9fb3d2;font-weight:600;white-space:nowrap;line-height:1.1;
+  display:flex;flex-direction:column;align-items:flex-start;gap:1px;transform-origin:center}
+.tile i{display:block;width:4px;height:4px;border-radius:50%;background:#7e93b5}
+.tile b{font-size:.72em;letter-spacing:.1em;color:#7e93b5;font-weight:800}
+.tile.lit{background:rgba(214,32,60,.20);border-color:rgba(214,32,60,.6);color:#ffd9de;
+  box-shadow:0 0 22px rgba(214,32,60,.4)}
+.tile.lit b{color:#ff9aa9}.tile.lit i{background:#d6203c}
+/* deep haze: dissolves the far field into darkness — extreme depth */
+.haze{position:absolute;inset:0;z-index:300;pointer-events:none;
+  background:radial-gradient(820px 560px at 80% 46%,transparent 0%,rgba(5,15,36,.28) 45%,rgba(5,15,36,.72) 72%,rgba(5,15,36,.96) 100%)}
+.vign{position:absolute;inset:0;z-index:301;pointer-events:none;
+  box-shadow:inset 0 0 220px 80px rgba(3,9,22,.85)}
+.scrim{position:absolute;inset:0;z-index:302;pointer-events:none;
+  background:linear-gradient(90deg,#0a1d39 0%,rgba(10,29,57,.93) 30%,rgba(10,29,57,.45) 55%,transparent 80%)}
+.headline{position:relative;z-index:400;max-width:1120px;margin:0 auto;padding:0 36px;width:100%}
+.eyebrow{letter-spacing:.28em;font-size:13px;text-transform:uppercase;color:#d6203c;font-weight:700;margin-bottom:18px}
+.headline h1{font-family:Georgia,serif;font-size:clamp(40px,6.5vw,72px);line-height:1.03;font-weight:800;
+  color:#fff;text-shadow:0 4px 36px rgba(0,0,0,.8)}
+.headline h1 .g{color:#d6203c}
+.headline p{max-width:540px;margin-top:20px;font-size:18px;color:#e6edf7;text-shadow:0 2px 16px rgba(0,0,0,.8)}
+
+
+
+
+
+.btns{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.b{padding:15px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px}
+.bg{background:linear-gradient(180deg,#d6203c,#a8132c);color:#fff;box-shadow:0 8px 24px rgba(214,32,60,.45)}
+.bo{border:2px solid rgba(255,255,255,.5);color:#fff}
+@media(prefers-reduced-motion:reduce){
+ }
+@media(max-width:760px){.scrim{background:linear-gradient(180deg,rgba(10,29,57,.5),#0a1d39 75%)}}
+
+
+
+
+
+
+@media(prefers-reduced-motion:reduce){
+ }
+
+
+
+
+
+
+.cbanner:hover 
+to{transform:translateX(-50%)}}
+
+
+
+
+
+
+
+
+
+
+@media(prefers-reduced-motion:reduce){}
+
+
+
+
+
+.cbanner:hover 
+to{transform:translateX(-50%)}}
+
+
+
+
+
+
+
+.manifesto{background:#0a1d39;padding:80px 24px;font-family:'Helvetica Neue',Arial,sans-serif}
+.mwrap{max-width:1080px;margin:0 auto}.mhead{text-align:center;margin-bottom:48px}
+.mhead h2{font-family:Georgia,serif;font-size:clamp(32px,4.5vw,52px);color:#fff;font-weight:800;margin-bottom:12px}.mhead p{color:#aebfd6;font-size:18px}
+.mcols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.mcol{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:30px}
+.mcol.no{border-top:4px solid #d6203c}.mcol.yes{border-top:4px solid #3ad17a}
+.mtitle{font-family:Georgia,serif;font-size:22px;color:#fff;font-weight:800;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.mtitle span{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;font-size:15px;font-weight:900}
+.mtitle.no span{background:rgba(214,32,60,.2);color:#ff6b81}.mtitle.yes span{background:rgba(58,209,122,.2);color:#3ad17a}
+.mtitle.no b{color:#ff6b81}.mtitle.yes b{color:#3ad17a}
+.mchips{display:flex;flex-wrap:wrap;gap:9px}.mchip{padding:8px 15px;border-radius:30px;font-size:14px;font-weight:600;line-height:1}
+.mchip.cno{background:rgba(214,32,60,.12);border:1px solid rgba(214,32,60,.35);color:#ffd9de}
+.mchip.cyes{background:rgba(58,209,122,.12);border:1px solid rgba(58,209,122,.4);color:#c9f5dc}
+@media(max-width:760px){.mcols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){}
+
+.rotline{display:flex;align-items:flex-start;gap:14px;font-family:Georgia,serif;font-weight:800;line-height:1.2}
+.rotline.no{margin-top:22px} .rotline.yes{margin-top:8px}
+.rotline .lead{font-size:clamp(30px,4.4vw,52px);color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.8);white-space:nowrap}
+.rotbox{position:relative;display:inline-block;height:1.3em;min-width:15ch;flex:1 1 auto}
+.rotbox > span{position:absolute;left:0;top:0;white-space:nowrap;font-size:clamp(30px,4.4vw,52px);
+  opacity:0;will-change:transform,opacity}
+.rotbox.cherry > span{color:#ff4d63;text-shadow:0 0 26px rgba(214,32,60,.55);animation:flipNo 67.2s infinite}
+.rotbox.green > span{color:#3ad17a;text-shadow:0 0 26px rgba(58,209,122,.5);animation:flipYes 77.7s infinite}
+@keyframes flipNo{0%,2.875%,100%{opacity:0;transform:translateY(120%)}0.25%,2.5%{opacity:1;transform:translateY(0)}}
+@keyframes flipYes{0%,2.486%,100%{opacity:0;transform:translateY(120%)}0.216%,2.162%{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.rotbox{height:auto;min-width:auto}.rotbox>span{position:static;opacity:1;transform:none;animation:none;margin-right:.5ch}}
+
+.features{background:#0f2747;padding:84px 24px;font-family:'Helvetica Neue',Arial,sans-serif}
+.fwrap{max-width:1080px;margin:0 auto}
+.fhead{text-align:center;margin-bottom:60px}
+.feyebrow{color:#d6203c;font-size:13px;letter-spacing:.18em;font-weight:800;margin-bottom:14px}
+.fhead h2{font-family:Georgia,serif;font-size:clamp(32px,4.8vw,54px);color:#fff;font-weight:800;margin-bottom:14px}
+.fhead p{color:#aebfd6;font-size:18px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin-bottom:54px}
+.frow.rev .fvis{order:2}
+.fvis{position:relative;border-radius:22px;height:300px;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 60px rgba(0,0,0,.4);overflow:hidden}
+.fvis span{font-size:120px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.45))}
+.ftag{position:absolute;top:18px;left:18px;background:rgba(0,0,0,.35);color:#fff;font-size:11px;letter-spacing:.14em;font-weight:800;padding:7px 13px;border-radius:30px;backdrop-filter:blur(4px)}
+.ftxt h3{font-family:Georgia,serif;font-size:clamp(26px,3.4vw,38px);color:#fff;font-weight:800;line-height:1.12;margin-bottom:16px}
+.ftxt p{color:#c2d0e6;font-size:17px;line-height:1.6;margin-bottom:26px}
+.fbtn{display:inline-block;background:#d6203c;color:#fff;text-decoration:none;font-weight:800;font-size:16px;padding:14px 28px;border-radius:40px;transition:.2s;box-shadow:0 10px 26px rgba(214,32,60,.35)}
+.fbtn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(214,32,60,.5)}
+.fmore{text-align:center;margin-top:24px}
+@media(max-width:760px){.frow,.frow.rev{grid-template-columns:1fr;gap:24px}.frow.rev .fvis{order:0}.fvis{height:220px}.fvis span{font-size:84px}}
+
+.ngc-pill{display:inline-block;background:rgba(214,32,60,.16);border:1px solid rgba(214,32,60,.55);color:#ff6b81;
+  font-size:13px;letter-spacing:.16em;font-weight:800;padding:8px 16px;border-radius:30px;margin-bottom:16px;
+  backdrop-filter:blur(4px);text-transform:uppercase}
+.fsub{color:#aebfd6;font-size:14px;letter-spacing:.04em;margin-top:6px}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(6,18,42,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(214,32,60,.2);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px}
+.site-nav a.logo-link img{height:36px;width:auto;display:block}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#8faed4;text-decoration:none;font-size:13px;font-weight:600;font-family:'Helvetica Neue',Arial,sans-serif;transition:color .2s}
+.site-nav .links a:hover{color:#fff}
+.site-nav .links a.cta{background:#d6203c;color:#fff!important;padding:9px 18px;border-radius:6px;font-weight:800!important}
+
+</style></head><body>
+<nav class="site-nav">
+  <a class="logo-link" href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-home.html">
+    <img src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/971297560_limitlesslearningFINALLOGO.png" alt="Limitless Learning"/>
+  </a>
+  <div class="links">
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-home.html">Home</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-academics.html">Academics</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-benefits.html">Why Project-Based?</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/why_school_failed.html">Why School Failed</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/manifesto.html">Manifesto</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/founder.html">Our Story</a>
+    <a href="https://mrothschild19.github.io/veritaspathfinder/" class="cta">Find Your Path →</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="field"><div class="tile" style="top:5.0%;left:75.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:5.2%;left:33.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:84.7%;left:71.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:24.8%;left:63.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:60.1%;left:71.6%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>SCIENCE & HEALTH</b>Gravity bends space</div>
+<div class="tile" style="top:29.5%;left:50.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Habits shape futures</div>
+<div class="tile" style="top:53.3%;left:83.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:4.8%;left:27.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:31.0%;left:28.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:74.7%;left:72.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:27.5%;left:76.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:33.7%;left:45.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:3.1%;left:55.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:62.1%;left:69.5%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>MATH & LOGIC</b>Patterns reveal structure</div>
+<div class="tile" style="top:7.6%;left:63.1%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>HISTORY & PHILOSOPHY</b>Power shapes narratives</div>
+<div class="tile" style="top:25.8%;left:52.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:67.8%;left:71.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Metaphors frame thought</div>
+<div class="tile" style="top:46.4%;left:63.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Forests regulate climate</div>
+<div class="tile" style="top:49.1%;left:59.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:59.8%;left:94.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:88.4%;left:90.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:12.6%;left:84.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:37.9%;left:48.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:61.9%;left:77.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:2.3%;left:54.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>SCIENCE & HEALTH</b>Neurons fire stories</div>
+<div class="tile lit" style="top:17.1%;left:56.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:54.0%;left:81.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:24.5%;left:46.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:81.2%;left:47.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:36.8%;left:48.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:44.0%;left:79.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Attention filters reality</div>
+<div class="tile" style="top:80.3%;left:60.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:57.9%;left:84.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:18.5%;left:64.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Equations compress ideas</div>
+<div class="tile" style="top:88.7%;left:93.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:35.0%;left:34.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:52.9%;left:72.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Borders redirect histories</div>
+<div class="tile" style="top:82.7%;left:47.9%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Rhythm organizes speech</div>
+<div class="tile" style="top:38.9%;left:56.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:73.6%;left:44.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:83.0%;left:53.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Oceans store heat</div>
+<div class="tile" style="top:29.2%;left:60.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:80.7%;left:74.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:22.2%;left:33.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Viruses hack cells</div>
+<div class="tile" style="top:70.4%;left:83.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Emotions carry information</div>
+<div class="tile" style="top:73.1%;left:93.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:43.1%;left:85.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:58.6%;left:89.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:17.4%;left:27.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:92.6%;left:84.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Chaos hides order</div>
+<div class="tile" style="top:63.6%;left:96.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:59.3%;left:88.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:74.7%;left:26.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:51.5%;left:26.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:40.9%;left:83.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:10.3%;left:62.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:45.1%;left:59.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:94.3%;left:77.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:92.1%;left:94.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Revolutions demand meaning</div>
+<div class="tile" style="top:45.4%;left:75.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Images compress stories</div>
+<div class="tile" style="top:90.6%;left:50.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Cities concentrate opportunity</div>
+<div class="tile" style="top:20.3%;left:33.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Muscles remember movement</div>
+<div class="tile lit" style="top:22.0%;left:58.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Beliefs resist evidence</div>
+<div class="tile" style="top:4.5%;left:49.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Symmetry suggests rules</div>
+<div class="tile" style="top:91.5%;left:26.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:78.1%;left:50.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:97.3%;left:59.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Myths organize memory</div>
+<div class="tile" style="top:51.9%;left:48.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:24.1%;left:66.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:51.2%;left:72.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:36.6%;left:85.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Humor disarms tension</div>
+<div class="tile lit" style="top:33.4%;left:49.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Plastics outlast generations</div>
+<div class="tile" style="top:78.0%;left:45.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Bones quietly remodel</div>
+<div class="tile" style="top:73.5%;left:35.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stereotypes shortcut thinking</div>
+<div class="tile" style="top:97.2%;left:84.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:32.0%;left:56.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:73.9%;left:59.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:25.2%;left:59.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:26.9%;left:54.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Proofs demand precision</div>
+<div class="tile" style="top:15.8%;left:98.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:2.5%;left:52.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Money centralizes trust</div>
+<div class="tile" style="top:1.8%;left:59.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:86.0%;left:37.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Symbols carry history</div>
+<div class="tile" style="top:91.1%;left:80.8%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>EARTH & TECH</b>Coral reefs crumble</div>
+<div class="tile" style="top:10.3%;left:89.0%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>SCIENCE & HEALTH</b>Fever fights infection</div>
+<div class="tile" style="top:34.5%;left:72.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:9.6%;left:73.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Curiosity fuels learning</div>
+<div class="tile" style="top:65.5%;left:32.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:39.1%;left:57.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:94.6%;left:80.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:69.5%;left:73.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:40.9%;left:53.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Ratios compare change</div>
+<div class="tile" style="top:34.0%;left:78.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Laws encode values</div>
+<div class="tile" style="top:71.1%;left:63.8%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Dialogue builds understanding</div>
+<div class="tile" style="top:68.2%;left:55.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Robots extend abilities</div>
+<div class="tile" style="top:51.2%;left:76.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:33.4%;left:98.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Allergies confuse defenses</div>
+<div class="tile" style="top:27.8%;left:56.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Loneliness distorts perception</div>
+<div class="tile" style="top:54.4%;left:78.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Graphs reveal relationships</div>
+<div class="tile" style="top:43.8%;left:77.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Empires export culture</div>
+<div class="tile" style="top:57.3%;left:45.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Music translates emotion</div>
+<div class="tile" style="top:54.8%;left:51.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Sensors observe everything</div>
+<div class="tile" style="top:16.1%;left:82.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:70.8%;left:45.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Microbes rule ecosystems</div>
+<div class="tile" style="top:57.9%;left:57.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Shame silences honesty</div>
+<div class="tile" style="top:11.2%;left:39.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:7.9%;left:94.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:90.4%;left:90.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Algorithms formalize choices</div>
+<div class="tile" style="top:48.4%;left:44.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Technology disrupts hierarchies</div>
+<div class="tile" style="top:94.2%;left:51.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:31.7%;left:66.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:34.3%;left:48.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:36.4%;left:60.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Dance embodies ideas</div>
+<div class="tile" style="top:17.1%;left:99.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:18.6%;left:82.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:79.8%;left:50.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:80.1%;left:87.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Code shapes behavior</div>
+<div class="tile" style="top:43.0%;left:59.9%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Vision interprets light</div>
+<div class="tile" style="top:35.0%;left:74.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:62.5%;left:90.0%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Play builds resilience</div>
+<div class="tile" style="top:93.3%;left:89.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:70.5%;left:30.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:24.6%;left:98.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:2.4%;left:65.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:19.2%;left:86.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Randomness follows patterns</div>
+<div class="tile lit" style="top:63.6%;left:85.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Justice requires imagination</div>
+<div class="tile lit" style="top:90.0%;left:91.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:41.7%;left:40.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:48.2%;left:97.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Silence shapes conversation</div>
+<div class="tile" style="top:27.9%;left:73.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:67.2%;left:88.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:49.3%;left:65.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:63.7%;left:72.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:18.7%;left:31.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Batteries store freedom</div>
+<div class="tile" style="top:12.3%;left:55.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:19.6%;left:47.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:62.7%;left:63.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:28.5%;left:76.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Taste detects danger</div>
+<div class="tile" style="top:65.5%;left:79.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:45.5%;left:74.0%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>PSYCHOLOGY</b>Stories rewire memories</div>
+<div class="tile" style="top:83.1%;left:33.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.2%;left:68.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Infinity challenges intuition</div>
+<div class="tile" style="top:62.4%;left:43.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:50.7%;left:73.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:50.5%;left:52.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:7.1%;left:65.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:20.3%;left:39.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:19.0%;left:89.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Ethics questions progress</div>
+<div class="tile" style="top:60.8%;left:90.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Questions spark creativity</div>
+<div class="tile" style="top:49.4%;left:92.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Satellites watch Earth</div>
+<div class="tile" style="top:61.3%;left:47.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:86.8%;left:88.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Gravity bends space</div>
+<div class="tile" style="top:52.2%;left:58.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:79.2%;left:40.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:64.3%;left:48.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:93.2%;left:84.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:86.3%;left:91.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:27.2%;left:68.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:45.3%;left:96.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:89.8%;left:42.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Habits shape futures</div>
+<div class="tile" style="top:42.2%;left:94.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:9.0%;left:40.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:63.0%;left:91.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:19.8%;left:50.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Patterns reveal structure</div>
+<div class="tile" style="top:39.5%;left:42.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:41.4%;left:94.1%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>HISTORY & PHILOSOPHY</b>Power shapes narratives</div>
+<div class="tile" style="top:61.0%;left:34.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:19.7%;left:43.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Metaphors frame thought</div>
+<div class="tile" style="top:67.4%;left:32.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:50.6%;left:70.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:55.2%;left:86.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Forests regulate climate</div>
+<div class="tile" style="top:65.0%;left:47.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:79.6%;left:29.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:26.5%;left:87.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:77.7%;left:29.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:71.8%;left:94.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.7%;left:54.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>SCIENCE & HEALTH</b>Neurons fire stories</div>
+<div class="tile" style="top:5.1%;left:37.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:76.0%;left:36.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Attention filters reality</div>
+<div class="tile" style="top:57.3%;left:94.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:94.3%;left:61.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Equations compress ideas</div>
+<div class="tile" style="top:81.9%;left:53.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:72.4%;left:86.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:64.7%;left:56.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:96.5%;left:57.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:31.9%;left:58.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Borders redirect histories</div>
+<div class="tile" style="top:69.9%;left:86.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Rhythm organizes speech</div>
+<div class="tile" style="top:32.4%;left:99.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:46.0%;left:69.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:87.4%;left:97.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Oceans store heat</div>
+<div class="tile lit" style="top:85.2%;left:62.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:93.0%;left:33.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Viruses hack cells</div>
+<div class="tile" style="top:57.7%;left:99.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Emotions carry information</div>
+<div class="tile" style="top:31.7%;left:30.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:50.3%;left:63.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Chaos hides order</div>
+<div class="tile lit" style="top:23.1%;left:88.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Revolutions demand meaning</div>
+<div class="tile" style="top:65.0%;left:29.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:68.0%;left:68.0%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Images compress stories</div>
+<div class="tile" style="top:19.4%;left:77.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:97.0%;left:59.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Cities concentrate opportunity</div>
+<div class="tile" style="top:27.1%;left:46.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Muscles remember movement</div>
+<div class="tile" style="top:63.0%;left:43.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:62.7%;left:48.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:63.4%;left:46.3%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Beliefs resist evidence</div>
+<div class="tile lit" style="top:39.3%;left:74.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Symmetry suggests rules</div>
+<div class="tile" style="top:95.9%;left:55.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.3%;left:45.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:50.2%;left:81.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Myths organize memory</div>
+<div class="tile" style="top:62.3%;left:87.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:71.7%;left:99.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:29.3%;left:98.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:29.8%;left:94.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Humor disarms tension</div>
+<div class="tile" style="top:13.7%;left:62.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Plastics outlast generations</div>
+<div class="tile" style="top:80.2%;left:67.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:16.9%;left:54.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:23.7%;left:82.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:91.4%;left:72.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Bones quietly remodel</div>
+<div class="tile" style="top:34.5%;left:34.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:30.7%;left:30.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stereotypes shortcut thinking</div>
+<div class="tile" style="top:45.2%;left:90.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:55.7%;left:66.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:88.2%;left:65.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:39.8%;left:94.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Proofs demand precision</div>
+<div class="tile" style="top:8.8%;left:59.8%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>HISTORY & PHILOSOPHY</b>Money centralizes trust</div>
+<div class="tile lit" style="top:9.3%;left:75.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Symbols carry history</div>
+<div class="tile" style="top:30.6%;left:63.0%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Coral reefs crumble</div>
+<div class="tile lit" style="top:97.0%;left:41.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:63.4%;left:55.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:32.6%;left:40.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Fever fights infection</div>
+<div class="tile" style="top:80.6%;left:39.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:33.5%;left:34.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:81.2%;left:38.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Curiosity fuels learning</div>
+<div class="tile" style="top:80.4%;left:93.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:25.5%;left:43.3%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>MATH & LOGIC</b>Ratios compare change</div>
+<div class="tile" style="top:39.3%;left:56.6%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Laws encode values</div>
+<div class="tile" style="top:53.0%;left:58.1%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Dialogue builds understanding</div>
+<div class="tile" style="top:43.3%;left:76.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Robots extend abilities</div>
+<div class="tile" style="top:53.6%;left:96.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:54.1%;left:83.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Allergies confuse defenses</div>
+<div class="tile" style="top:2.1%;left:32.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:47.9%;left:67.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:24.2%;left:88.7%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Loneliness distorts perception</div>
+<div class="tile" style="top:58.8%;left:29.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:58.7%;left:42.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:58.0%;left:69.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:72.4%;left:57.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:63.9%;left:54.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Graphs reveal relationships</div>
+<div class="tile" style="top:7.7%;left:75.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Empires export culture</div>
+<div class="tile" style="top:85.3%;left:81.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:32.3%;left:48.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:17.4%;left:30.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:9.9%;left:90.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:70.7%;left:99.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Music translates emotion</div>
+<div class="tile" style="top:25.3%;left:44.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Sensors observe everything</div>
+<div class="tile" style="top:89.9%;left:76.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Microbes rule ecosystems</div>
+<div class="tile lit" style="top:39.5%;left:75.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Shame silences honesty</div>
+<div class="tile" style="top:41.4%;left:73.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:96.8%;left:42.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.7%;left:46.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Algorithms formalize choices</div>
+<div class="tile" style="top:76.4%;left:89.7%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>HISTORY & PHILOSOPHY</b>Technology disrupts hierarchies</div>
+<div class="tile" style="top:26.1%;left:93.3%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>LANGUAGE & ART</b>Dance embodies ideas</div>
+<div class="tile" style="top:52.6%;left:40.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:68.7%;left:46.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:37.2%;left:67.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:16.6%;left:71.8%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Code shapes behavior</div>
+<div class="tile" style="top:49.7%;left:79.9%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Vision interprets light</div>
+<div class="tile" style="top:98.0%;left:54.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:22.6%;left:34.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:36.6%;left:84.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:90.8%;left:61.1%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Play builds resilience</div>
+<div class="tile" style="top:31.6%;left:91.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:37.7%;left:32.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:92.3%;left:71.6%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Randomness follows patterns</div>
+<div class="tile" style="top:66.7%;left:29.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:63.6%;left:96.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:90.8%;left:92.9%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Justice requires imagination</div>
+<div class="tile" style="top:79.4%;left:71.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Silence shapes conversation</div>
+<div class="tile" style="top:80.6%;left:45.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Batteries store freedom</div>
+<div class="tile" style="top:67.4%;left:92.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:46.6%;left:74.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Taste detects danger</div>
+<div class="tile" style="top:54.5%;left:87.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:77.6%;left:48.5%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>PSYCHOLOGY</b>Stories rewire memories</div>
+<div class="tile" style="top:79.5%;left:65.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:25.7%;left:76.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Infinity challenges intuition</div>
+<div class="tile lit" style="top:43.4%;left:59.1%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>HISTORY & PHILOSOPHY</b>Ethics questions progress</div>
+<div class="tile" style="top:9.9%;left:72.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:74.1%;left:61.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:10.2%;left:61.8%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Questions spark creativity</div>
+<div class="tile" style="top:34.2%;left:51.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:46.8%;left:35.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Satellites watch Earth</div>
+<div class="tile" style="top:37.3%;left:91.6%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>SCIENCE & HEALTH</b>Gravity bends space</div>
+<div class="tile" style="top:67.8%;left:54.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:73.7%;left:35.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:77.5%;left:92.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:24.2%;left:76.6%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>PSYCHOLOGY</b>Habits shape futures</div>
+<div class="tile" style="top:38.4%;left:90.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:81.2%;left:56.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:30.2%;left:47.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Patterns reveal structure</div>
+<div class="tile" style="top:94.2%;left:78.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:38.7%;left:85.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:97.0%;left:38.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:68.9%;left:59.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:89.0%;left:68.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:47.2%;left:73.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:88.0%;left:68.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:3.7%;left:87.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:60.5%;left:74.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Power shapes narratives</div>
+<div class="tile" style="top:81.7%;left:42.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Metaphors frame thought</div>
+<div class="tile" style="top:35.0%;left:47.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:52.0%;left:80.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Forests regulate climate</div>
+<div class="tile" style="top:25.3%;left:92.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Neurons fire stories</div>
+<div class="tile" style="top:53.4%;left:66.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:44.2%;left:66.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Attention filters reality</div>
+<div class="tile" style="top:64.4%;left:54.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Equations compress ideas</div>
+<div class="tile lit" style="top:91.5%;left:60.3%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Borders redirect histories</div>
+<div class="tile lit" style="top:81.2%;left:65.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Rhythm organizes speech</div>
+<div class="tile" style="top:59.5%;left:85.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:76.1%;left:54.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:15.9%;left:38.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:78.8%;left:52.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:17.9%;left:61.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:75.4%;left:79.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:26.8%;left:40.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Oceans store heat</div>
+<div class="tile" style="top:58.6%;left:87.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:92.4%;left:35.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Viruses hack cells</div>
+<div class="tile" style="top:74.8%;left:97.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:92.1%;left:81.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:22.3%;left:66.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:30.2%;left:47.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:21.9%;left:57.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Emotions carry information</div>
+<div class="tile" style="top:16.4%;left:84.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Chaos hides order</div>
+<div class="tile" style="top:48.2%;left:90.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:82.1%;left:27.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:58.1%;left:48.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:57.5%;left:64.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:10.7%;left:56.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:61.6%;left:48.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Revolutions demand meaning</div>
+<div class="tile" style="top:96.0%;left:76.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Images compress stories</div>
+<div class="tile" style="top:66.3%;left:84.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Cities concentrate opportunity</div>
+<div class="tile" style="top:48.9%;left:63.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:71.7%;left:38.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:12.4%;left:84.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Muscles remember movement</div>
+<div class="tile" style="top:23.2%;left:34.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:39.7%;left:33.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:25.1%;left:79.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:16.8%;left:43.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:85.5%;left:90.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Beliefs resist evidence</div>
+<div class="tile" style="top:50.2%;left:45.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:73.6%;left:65.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Symmetry suggests rules</div>
+<div class="tile lit" style="top:51.1%;left:88.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Myths organize memory</div>
+<div class="tile" style="top:83.6%;left:66.4%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>LANGUAGE & ART</b>Humor disarms tension</div>
+<div class="tile" style="top:27.4%;left:55.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Plastics outlast generations</div>
+<div class="tile lit" style="top:77.4%;left:87.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Bones quietly remodel</div>
+<div class="tile" style="top:95.1%;left:75.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stereotypes shortcut thinking</div>
+<div class="tile" style="top:48.7%;left:58.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Proofs demand precision</div>
+<div class="tile" style="top:8.7%;left:61.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:48.9%;left:63.7%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Money centralizes trust</div>
+<div class="tile" style="top:16.4%;left:42.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:32.0%;left:89.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:1.9%;left:35.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:61.7%;left:52.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:19.0%;left:34.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:49.1%;left:45.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:20.2%;left:36.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Symbols carry history</div>
+<div class="tile lit" style="top:45.7%;left:50.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Coral reefs crumble</div>
+<div class="tile" style="top:89.9%;left:82.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Fever fights infection</div>
+<div class="tile" style="top:26.3%;left:80.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Curiosity fuels learning</div>
+<div class="tile" style="top:36.0%;left:89.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Ratios compare change</div>
+<div class="tile" style="top:42.7%;left:63.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:59.4%;left:42.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Laws encode values</div>
+<div class="tile" style="top:70.7%;left:92.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Dialogue builds understanding</div>
+<div class="tile" style="top:31.2%;left:65.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Robots extend abilities</div>
+<div class="tile" style="top:85.9%;left:85.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:34.5%;left:92.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Allergies confuse defenses</div>
+<div class="tile" style="top:36.1%;left:97.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:13.4%;left:50.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:84.0%;left:81.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:65.7%;left:70.3%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>PSYCHOLOGY</b>Loneliness distorts perception</div>
+<div class="tile" style="top:89.9%;left:48.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:4.2%;left:81.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Graphs reveal relationships</div>
+<div class="tile" style="top:43.3%;left:37.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:84.5%;left:73.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Empires export culture</div>
+<div class="tile" style="top:49.5%;left:44.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Music translates emotion</div>
+<div class="tile" style="top:41.5%;left:54.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Sensors observe everything</div>
+<div class="tile" style="top:32.5%;left:52.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Microbes rule ecosystems</div>
+<div class="tile" style="top:77.1%;left:90.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:14.1%;left:30.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:28.0%;left:96.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Shame silences honesty</div>
+<div class="tile" style="top:64.4%;left:37.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Algorithms formalize choices</div>
+<div class="tile" style="top:75.7%;left:48.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Technology disrupts hierarchies</div>
+<div class="tile" style="top:1.9%;left:33.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Dance embodies ideas</div>
+<div class="tile" style="top:74.3%;left:33.9%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Code shapes behavior</div>
+<div class="tile" style="top:15.7%;left:90.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:14.8%;left:67.8%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Vision interprets light</div>
+<div class="tile" style="top:21.4%;left:86.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Play builds resilience</div>
+<div class="tile" style="top:87.8%;left:90.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:86.0%;left:80.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:42.6%;left:88.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:89.9%;left:35.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.2%;left:92.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Randomness follows patterns</div>
+<div class="tile" style="top:90.1%;left:38.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:40.1%;left:39.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:26.6%;left:94.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:71.3%;left:91.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Justice requires imagination</div>
+<div class="tile" style="top:32.9%;left:56.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Silence shapes conversation</div>
+<div class="tile" style="top:22.7%;left:95.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Batteries store freedom</div>
+<div class="tile" style="top:87.2%;left:44.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:74.3%;left:91.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Taste detects danger</div>
+<div class="tile" style="top:93.3%;left:71.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:94.0%;left:76.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stories rewire memories</div>
+<div class="tile" style="top:95.1%;left:87.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Infinity challenges intuition</div>
+<div class="tile" style="top:4.4%;left:86.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Ethics questions progress</div>
+<div class="tile" style="top:31.2%;left:45.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:78.9%;left:49.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Questions spark creativity</div>
+<div class="tile" style="top:86.1%;left:82.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Satellites watch Earth</div>
+<div class="tile" style="top:42.9%;left:50.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:26.2%;left:65.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:16.8%;left:89.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:76.8%;left:71.8%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Gravity bends space</div>
+<div class="tile" style="top:34.6%;left:95.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:16.8%;left:78.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:36.4%;left:80.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Habits shape futures</div>
+<div class="tile" style="top:12.4%;left:30.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:97.1%;left:32.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:79.8%;left:97.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Patterns reveal structure</div>
+<div class="tile" style="top:83.5%;left:46.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Power shapes narratives</div>
+<div class="tile" style="top:87.2%;left:46.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:38.7%;left:63.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:45.6%;left:83.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Metaphors frame thought</div>
+<div class="tile" style="top:47.5%;left:38.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Forests regulate climate</div>
+<div class="tile" style="top:40.5%;left:98.3%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Neurons fire stories</div>
+<div class="tile" style="top:77.9%;left:86.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:41.0%;left:77.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:84.6%;left:76.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:10.4%;left:57.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:7.2%;left:99.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Attention filters reality</div>
+<div class="tile" style="top:68.3%;left:35.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Equations compress ideas</div>
+<div class="tile" style="top:18.2%;left:85.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:82.5%;left:74.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:56.8%;left:62.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:14.3%;left:89.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:21.0%;left:82.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:85.8%;left:68.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:54.1%;left:28.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:28.5%;left:79.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:56.3%;left:78.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Borders redirect histories</div>
+<div class="tile" style="top:91.9%;left:90.7%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Rhythm organizes speech</div>
+<div class="tile" style="top:85.7%;left:80.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:89.4%;left:60.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Oceans store heat</div>
+<div class="tile" style="top:54.6%;left:52.9%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Viruses hack cells</div>
+<div class="tile" style="top:24.1%;left:51.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:95.1%;left:75.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:49.1%;left:29.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:43.2%;left:78.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Emotions carry information</div>
+<div class="tile lit" style="top:24.6%;left:30.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:86.7%;left:57.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:62.2%;left:96.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:27.6%;left:95.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Chaos hides order</div>
+<div class="tile" style="top:41.8%;left:95.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:60.9%;left:63.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:21.0%;left:36.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:6.2%;left:51.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:65.3%;left:68.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:95.9%;left:35.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:78.6%;left:75.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:73.2%;left:73.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Revolutions demand meaning</div>
+<div class="tile" style="top:55.3%;left:95.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Images compress stories</div>
+<div class="tile" style="top:69.3%;left:48.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:73.8%;left:60.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:77.1%;left:37.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Cities concentrate opportunity</div>
+<div class="tile" style="top:45.2%;left:86.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Muscles remember movement</div>
+<div class="tile" style="top:77.3%;left:45.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Beliefs resist evidence</div>
+<div class="tile" style="top:37.3%;left:92.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:66.8%;left:94.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:94.2%;left:95.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:31.7%;left:92.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:85.7%;left:29.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:32.0%;left:96.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:78.1%;left:63.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:52.8%;left:72.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Symmetry suggests rules</div>
+<div class="tile" style="top:27.5%;left:98.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:78.4%;left:95.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:22.1%;left:78.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Myths organize memory</div>
+<div class="tile" style="top:21.9%;left:96.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Humor disarms tension</div>
+<div class="tile" style="top:81.3%;left:85.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:15.2%;left:99.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:84.1%;left:72.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:90.8%;left:43.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:14.7%;left:55.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:20.7%;left:40.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:18.5%;left:90.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Plastics outlast generations</div>
+<div class="tile" style="top:65.6%;left:86.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Bones quietly remodel</div>
+<div class="tile" style="top:73.0%;left:48.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:7.9%;left:60.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:33.0%;left:64.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:37.4%;left:95.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Stereotypes shortcut thinking</div>
+<div class="tile" style="top:56.6%;left:99.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:69.4%;left:58.7%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Proofs demand precision</div>
+<div class="tile" style="top:35.9%;left:91.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:17.2%;left:91.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:84.1%;left:59.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:54.6%;left:97.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:6.8%;left:53.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Money centralizes trust</div>
+<div class="tile" style="top:33.7%;left:33.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:23.7%;left:74.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.4%;left:92.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:24.5%;left:82.4%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>LANGUAGE & ART</b>Symbols carry history</div>
+<div class="tile lit" style="top:90.8%;left:90.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Coral reefs crumble</div>
+<div class="tile" style="top:94.3%;left:83.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Fever fights infection</div>
+<div class="tile" style="top:10.8%;left:55.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Curiosity fuels learning</div>
+<div class="tile" style="top:30.1%;left:65.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Ratios compare change</div>
+<div class="tile" style="top:25.5%;left:48.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:37.6%;left:34.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Laws encode values</div>
+<div class="tile" style="top:31.4%;left:45.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:13.1%;left:76.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:75.7%;left:33.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:58.4%;left:34.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:9.7%;left:96.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:35.4%;left:62.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Dialogue builds understanding</div>
+<div class="tile" style="top:61.7%;left:47.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:86.6%;left:61.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:26.6%;left:98.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Robots extend abilities</div>
+<div class="tile" style="top:57.6%;left:52.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:46.1%;left:83.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:39.9%;left:97.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:75.6%;left:54.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Allergies confuse defenses</div>
+<div class="tile" style="top:83.6%;left:84.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Loneliness distorts perception</div>
+<div class="tile" style="top:16.8%;left:62.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:64.7%;left:66.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Graphs reveal relationships</div>
+<div class="tile" style="top:28.4%;left:79.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:33.1%;left:62.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:91.4%;left:96.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:88.8%;left:68.0%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Empires export culture</div>
+<div class="tile" style="top:84.1%;left:50.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Music translates emotion</div>
+<div class="tile" style="top:88.1%;left:92.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:84.7%;left:87.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Sensors observe everything</div>
+<div class="tile" style="top:30.4%;left:86.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:12.7%;left:97.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:24.0%;left:52.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Microbes rule ecosystems</div>
+<div class="tile" style="top:88.2%;left:61.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Shame silences honesty</div>
+<div class="tile" style="top:86.0%;left:64.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:28.7%;left:48.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Algorithms formalize choices</div>
+<div class="tile" style="top:1.7%;left:58.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:23.9%;left:68.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Technology disrupts hierarchies</div>
+<div class="tile" style="top:35.3%;left:57.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Dance embodies ideas</div>
+<div class="tile" style="top:64.2%;left:38.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Code shapes behavior</div>
+<div class="tile" style="top:62.2%;left:48.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Vision interprets light</div>
+<div class="tile" style="top:95.3%;left:78.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:58.1%;left:55.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Play builds resilience</div>
+<div class="tile" style="top:97.2%;left:37.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:33.1%;left:82.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:46.1%;left:92.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:18.0%;left:57.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:56.6%;left:69.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:90.2%;left:46.7%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Randomness follows patterns</div>
+<div class="tile" style="top:16.9%;left:73.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:42.4%;left:37.8%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Justice requires imagination</div>
+<div class="tile" style="top:88.4%;left:85.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:88.8%;left:71.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Silence shapes conversation</div>
+<div class="tile" style="top:43.8%;left:39.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Batteries store freedom</div>
+<div class="tile" style="top:13.0%;left:36.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:16.5%;left:97.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:19.6%;left:70.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:10.4%;left:36.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:74.3%;left:80.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:81.2%;left:50.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:97.3%;left:72.7%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Taste detects danger</div>
+<div class="tile" style="top:34.4%;left:95.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stories rewire memories</div>
+<div class="tile" style="top:49.1%;left:55.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:27.8%;left:41.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:8.6%;left:97.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Infinity challenges intuition</div>
+<div class="tile" style="top:27.6%;left:40.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Ethics questions progress</div>
+<div class="tile" style="top:8.2%;left:52.0%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>LANGUAGE & ART</b>Questions spark creativity</div>
+<div class="tile" style="top:78.1%;left:79.6%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>EARTH & TECH</b>Satellites watch Earth</div>
+<div class="tile" style="top:25.6%;left:48.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:29.0%;left:84.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Gravity bends space</div>
+<div class="tile" style="top:24.0%;left:47.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:20.4%;left:69.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Habits shape futures</div>
+<div class="tile" style="top:50.6%;left:88.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:56.9%;left:64.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:4.9%;left:81.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:8.6%;left:50.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:12.2%;left:85.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Patterns reveal structure</div>
+<div class="tile" style="top:17.2%;left:60.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Power shapes narratives</div>
+<div class="tile" style="top:17.6%;left:47.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:15.0%;left:48.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Metaphors frame thought</div>
+<div class="tile" style="top:59.4%;left:90.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:43.0%;left:58.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:57.0%;left:42.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:9.7%;left:31.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:96.8%;left:54.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:76.7%;left:34.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:76.4%;left:90.1%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Forests regulate climate</div>
+<div class="tile" style="top:8.8%;left:40.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Neurons fire stories</div>
+<div class="tile" style="top:24.0%;left:74.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Attention filters reality</div>
+<div class="tile" style="top:79.8%;left:42.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Equations compress ideas</div>
+<div class="tile" style="top:9.0%;left:56.6%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>HISTORY & PHILOSOPHY</b>Borders redirect histories</div>
+<div class="tile" style="top:33.8%;left:74.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Rhythm organizes speech</div>
+<div class="tile" style="top:9.0%;left:72.1%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Oceans store heat</div>
+<div class="tile" style="top:45.4%;left:60.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:25.3%;left:52.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:37.2%;left:44.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:56.3%;left:72.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:30.4%;left:67.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Viruses hack cells</div>
+<div class="tile" style="top:13.5%;left:78.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:54.3%;left:55.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:82.7%;left:69.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Emotions carry information</div>
+<div class="tile" style="top:6.8%;left:30.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Chaos hides order</div>
+<div class="tile" style="top:56.4%;left:69.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Revolutions demand meaning</div>
+<div class="tile" style="top:14.2%;left:86.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Images compress stories</div>
+<div class="tile" style="top:81.1%;left:50.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Cities concentrate opportunity</div>
+<div class="tile" style="top:80.9%;left:73.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:4.6%;left:53.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:89.9%;left:85.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:57.7%;left:90.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Muscles remember movement</div>
+<div class="tile" style="top:84.4%;left:80.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Beliefs resist evidence</div>
+<div class="tile" style="top:21.4%;left:81.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:61.8%;left:43.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:57.2%;left:30.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Symmetry suggests rules</div>
+<div class="tile" style="top:9.9%;left:94.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:70.9%;left:44.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:12.1%;left:31.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:25.9%;left:93.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:55.5%;left:52.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:79.4%;left:66.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Myths organize memory</div>
+<div class="tile" style="top:26.6%;left:45.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:48.5%;left:65.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:18.5%;left:48.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Humor disarms tension</div>
+<div class="tile" style="top:78.7%;left:47.4%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Plastics outlast generations</div>
+<div class="tile" style="top:45.5%;left:93.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:41.1%;left:57.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:76.7%;left:35.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:21.1%;left:51.3%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Bones quietly remodel</div>
+<div class="tile" style="top:19.6%;left:50.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:36.9%;left:72.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:33.6%;left:70.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:85.7%;left:83.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:44.5%;left:50.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:51.2%;left:73.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:49.9%;left:89.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:27.4%;left:66.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stereotypes shortcut thinking</div>
+<div class="tile" style="top:46.6%;left:32.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:21.7%;left:82.2%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>MATH & LOGIC</b>Proofs demand precision</div>
+<div class="tile" style="top:68.2%;left:62.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:64.5%;left:77.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>HISTORY & PHILOSOPHY</b>Money centralizes trust</div>
+<div class="tile" style="top:94.3%;left:61.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:71.8%;left:75.8%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>LANGUAGE & ART</b>Symbols carry history</div>
+<div class="tile" style="top:89.0%;left:62.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Coral reefs crumble</div>
+<div class="tile" style="top:24.4%;left:50.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>SCIENCE & HEALTH</b>Fever fights infection</div>
+<div class="tile" style="top:77.2%;left:95.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:62.2%;left:87.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Curiosity fuels learning</div>
+<div class="tile" style="top:7.4%;left:75.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Ratios compare change</div>
+<div class="tile" style="top:26.1%;left:98.6%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:93.8%;left:36.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:70.2%;left:89.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:83.8%;left:32.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:63.5%;left:68.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Laws encode values</div>
+<div class="tile" style="top:28.6%;left:41.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:49.7%;left:55.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:77.8%;left:42.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:22.5%;left:40.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Dialogue builds understanding</div>
+<div class="tile" style="top:10.9%;left:34.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:45.1%;left:38.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:91.0%;left:66.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:12.6%;left:64.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Robots extend abilities</div>
+<div class="tile" style="top:4.2%;left:73.6%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:79.1%;left:38.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:74.5%;left:43.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:85.6%;left:58.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:24.7%;left:43.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Allergies confuse defenses</div>
+<div class="tile" style="top:39.0%;left:66.3%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>PSYCHOLOGY</b>Loneliness distorts perception</div>
+<div class="tile" style="top:48.6%;left:83.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:18.2%;left:49.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Graphs reveal relationships</div>
+<div class="tile" style="top:67.7%;left:52.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:7.0%;left:58.2%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Empires export culture</div>
+<div class="tile" style="top:19.6%;left:39.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Music translates emotion</div>
+<div class="tile" style="top:39.5%;left:85.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:71.0%;left:42.8%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:85.1%;left:97.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:30.5%;left:73.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:27.6%;left:44.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Sensors observe everything</div>
+<div class="tile" style="top:61.5%;left:39.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:78.0%;left:62.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Microbes rule ecosystems</div>
+<div class="tile" style="top:68.1%;left:98.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Shame silences honesty</div>
+<div class="tile" style="top:64.8%;left:50.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Algorithms formalize choices</div>
+<div class="tile" style="top:68.0%;left:45.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:82.9%;left:52.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>HISTORY & PHILOSOPHY</b>Technology disrupts hierarchies</div>
+<div class="tile" style="top:82.5%;left:56.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Dance embodies ideas</div>
+<div class="tile" style="top:30.5%;left:77.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Code shapes behavior</div>
+<div class="tile" style="top:90.0%;left:84.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:55.9%;left:99.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Vision interprets light</div>
+<div class="tile" style="top:21.4%;left:77.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:74.4%;left:68.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Play builds resilience</div>
+<div class="tile" style="top:91.8%;left:79.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Randomness follows patterns</div>
+<div class="tile" style="top:67.1%;left:61.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:30.5%;left:51.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:4.2%;left:32.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:58.1%;left:58.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Justice requires imagination</div>
+<div class="tile" style="top:36.0%;left:45.6%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>LANGUAGE & ART</b>Silence shapes conversation</div>
+<div class="tile" style="top:78.6%;left:66.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:9.8%;left:37.6%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Batteries store freedom</div>
+<div class="tile" style="top:74.9%;left:47.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:37.5%;left:77.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Taste detects danger</div>
+<div class="tile" style="top:45.3%;left:84.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Stories rewire memories</div>
+<div class="tile" style="top:4.2%;left:65.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:33.7%;left:46.5%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Infinity challenges intuition</div>
+<div class="tile" style="top:2.8%;left:76.7%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Ethics questions progress</div>
+<div class="tile" style="top:21.4%;left:93.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:41.2%;left:80.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:28.5%;left:46.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:23.3%;left:94.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:93.4%;left:84.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:63.6%;left:66.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:14.5%;left:55.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Questions spark creativity</div>
+<div class="tile" style="top:60.6%;left:62.9%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Satellites watch Earth</div>
+<div class="tile lit" style="top:63.1%;left:43.6%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Gravity bends space</div>
+<div class="tile" style="top:45.7%;left:61.6%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Habits shape futures</div>
+<div class="tile" style="top:41.8%;left:75.8%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>MATH & LOGIC</b>Patterns reveal structure</div>
+<div class="tile" style="top:39.9%;left:60.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:22.2%;left:80.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:63.1%;left:71.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Power shapes narratives</div>
+<div class="tile" style="top:43.6%;left:60.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:49.8%;left:65.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:26.4%;left:89.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:44.7%;left:86.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:54.4%;left:80.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:68.4%;left:75.0%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:92.9%;left:73.5%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:90.0%;left:93.1%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Metaphors frame thought</div>
+<div class="tile" style="top:93.2%;left:64.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>EARTH & TECH</b>Forests regulate climate</div>
+<div class="tile" style="top:33.7%;left:28.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:37.0%;left:41.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:20.1%;left:54.5%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>SCIENCE & HEALTH</b>Neurons fire stories</div>
+<div class="tile" style="top:69.3%;left:90.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:94.0%;left:86.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Attention filters reality</div>
+<div class="tile" style="top:48.8%;left:31.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:73.3%;left:94.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:94.0%;left:51.7%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:84.3%;left:35.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:9.9%;left:77.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Equations compress ideas</div>
+<div class="tile" style="top:29.7%;left:50.0%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Borders redirect histories</div>
+<div class="tile" style="top:96.8%;left:29.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:94.9%;left:59.7%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>LANGUAGE & ART</b>Rhythm organizes speech</div>
+<div class="tile" style="top:55.9%;left:61.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:31.7%;left:46.2%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Oceans store heat</div>
+<div class="tile" style="top:21.6%;left:38.3%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:63.9%;left:70.9%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:58.7%;left:81.3%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Viruses hack cells</div>
+<div class="tile" style="top:92.3%;left:96.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:51.3%;left:43.2%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Emotions carry information</div>
+<div class="tile" style="top:37.1%;left:83.4%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:60.2%;left:65.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Chaos hides order</div>
+<div class="tile" style="top:89.2%;left:39.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:22.9%;left:47.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Revolutions demand meaning</div>
+<div class="tile" style="top:84.2%;left:31.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:10.8%;left:59.7%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>LANGUAGE & ART</b>Images compress stories</div>
+<div class="tile" style="top:64.7%;left:42.7%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>EARTH & TECH</b>Cities concentrate opportunity</div>
+<div class="tile" style="top:65.7%;left:43.2%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:85.7%;left:51.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:23.0%;left:76.0%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>SCIENCE & HEALTH</b>Muscles remember movement</div>
+<div class="tile" style="top:26.2%;left:82.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:24.7%;left:72.3%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:91.5%;left:29.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:7.8%;left:61.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:53.0%;left:87.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:86.2%;left:87.5%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:1.7%;left:95.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile lit" style="top:77.6%;left:61.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>PSYCHOLOGY</b>Beliefs resist evidence</div>
+<div class="tile" style="top:48.6%;left:46.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>MATH & LOGIC</b>Symmetry suggests rules</div>
+<div class="tile" style="top:44.8%;left:80.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:38.0%;left:29.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:71.8%;left:60.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:25.0%;left:86.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Myths organize memory</div>
+<div class="tile" style="top:16.5%;left:87.9%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>LANGUAGE & ART</b>Humor disarms tension</div>
+<div class="tile" style="top:94.6%;left:49.1%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:33.0%;left:89.8%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>EARTH & TECH</b>Plastics outlast generations</div>
+<div class="tile" style="top:89.9%;left:46.4%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:77.1%;left:69.0%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:3.5%;left:28.1%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:20.0%;left:32.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:43.8%;left:44.2%;transform:scale(1.05);opacity:0.95;filter:blur(0.0px);font-size:11px;z-index:105"><b>SCIENCE & HEALTH</b>Bones quietly remodel</div>
+<div class="tile" style="top:32.0%;left:55.4%;transform:scale(0.76);opacity:0.45;filter:blur(0.6px);font-size:9px;z-index:76"><b>PSYCHOLOGY</b>Stereotypes shortcut thinking</div>
+<div class="tile" style="top:40.1%;left:47.5%;transform:scale(0.9);opacity:0.66;filter:blur(0.25px);font-size:10px;z-index:90"><b>MATH & LOGIC</b>Proofs demand precision</div>
+<div class="tile lit" style="top:73.4%;left:37.8%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile" style="top:79.6%;left:83.2%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:78.3%;left:84.9%;transform:scale(0.46);opacity:0.2;filter:blur(1.7px);font-size:7px;z-index:46"><i></i></div>
+<div class="tile lit" style="top:7.7%;left:30.7%;transform:scale(0.34);opacity:0.13;filter:blur(2.4px);font-size:7px;z-index:34"><i></i></div>
+<div class="tile" style="top:16.6%;left:97.1%;transform:scale(0.6);opacity:0.3;filter:blur(1.1px);font-size:8px;z-index:60"><b>HISTORY & PHILOSOPHY</b>Money centralizes trust</div></div>
+  <div class="haze"></div><div class="vign"></div><div class="scrim"></div>
+  <div class="headline">
+    <div class="ngc-pill">✦ NEXT GEN CURRICULUM</div>
+    <div class="eyebrow">LIMITLESS</div>
+    <h1>School Is Broken.<br><span class="g">We Reinvented It.</span></h1>
+    <p>1,400+ real-world microcourses — art to science, ELA to fitness, history to tech. Endless paths. Learn to read, then learn anything, at your own pace.</p>
+    <div class="rotline no"><span class="lead">No</span><span class="rotbox cherry"><span style="animation-delay:0.0s">tests</span><span style="animation-delay:2.1s">grades</span><span style="animation-delay:4.2s">busywork</span><span style="animation-delay:6.3s">lectures</span><span style="animation-delay:8.4s">bells</span><span style="animation-delay:10.5s">hall passes</span><span style="animation-delay:12.6s">Common Core</span><span style="animation-delay:14.7s">gender ideology</span><span style="animation-delay:16.8s">indoctrination</span><span style="animation-delay:18.9s">revisionist history</span><span style="animation-delay:21.0s">conformity</span><span style="animation-delay:23.1s">peer pressure</span><span style="animation-delay:25.2s">bullying</span><span style="animation-delay:27.3s">drugs</span><span style="animation-delay:29.4s">lies</span><span style="animation-delay:31.5s">burnout</span><span style="animation-delay:33.6s">age segregation</span><span style="animation-delay:35.7s">one-size-fits-all</span><span style="animation-delay:37.8s">standardized everything</span><span style="animation-delay:39.9s">memorize-and-forget</span><span style="animation-delay:42.0s">fear</span><span style="animation-delay:44.1s">shame</span><span style="animation-delay:46.2s">boredom</span><span style="animation-delay:48.3s">gatekeeping</span><span style="animation-delay:50.4s">labels</span><span style="animation-delay:52.5s">comparison</span><span style="animation-delay:54.6s">judging</span><span style="animation-delay:56.7s">busy-for-busy's-sake</span><span style="animation-delay:58.8s">propaganda</span><span style="animation-delay:60.9s">wasted years</span><span style="animation-delay:63.0s">crushing curiosity</span><span style="animation-delay:65.1s">teaching to the test</span></span></div>
+    <div class="rotline yes"><span class="lead">Yes</span><span class="rotbox green"><span style="animation-delay:0.0s">passion</span><span style="animation-delay:2.1s">curiosity</span><span style="animation-delay:4.2s">purpose</span><span style="animation-delay:6.3s">real skills</span><span style="animation-delay:8.4s">freedom</span><span style="animation-delay:10.5s">child-directed</span><span style="animation-delay:12.6s">family together</span><span style="animation-delay:14.7s">self-paced</span><span style="animation-delay:16.8s">mastery</span><span style="animation-delay:18.9s">wonder</span><span style="animation-delay:21.0s">creativity</span><span style="animation-delay:23.1s">confidence</span><span style="animation-delay:25.2s">critical thinking</span><span style="animation-delay:27.3s">faith</span><span style="animation-delay:29.4s">character</span><span style="animation-delay:31.5s">adventure</span><span style="animation-delay:33.6s">mentorship</span><span style="animation-delay:35.7s">real projects</span><span style="animation-delay:37.8s">entrepreneurship</span><span style="animation-delay:39.9s">joy</span><span style="animation-delay:42.0s">it sticks</span><span style="animation-delay:44.1s">it sparks</span><span style="animation-delay:46.2s">deep focus</span><span style="animation-delay:48.3s">independence</span><span style="animation-delay:50.4s">grit</span><span style="animation-delay:52.5s">imagination</span><span style="animation-delay:54.6s">life skills</span><span style="animation-delay:56.7s">calling</span><span style="animation-delay:58.8s">truth</span><span style="animation-delay:60.9s">exploration</span><span style="animation-delay:63.0s">genuine learning</span><span style="animation-delay:65.1s">unlimited potential</span><span style="animation-delay:67.2s">building</span><span style="animation-delay:69.3s">growing</span><span style="animation-delay:71.4s">planting</span><span style="animation-delay:73.5s">designing</span><span style="animation-delay:75.6s">creating</span></span></div>
+    <div class="btns"><a class="b bg" href="#">Start the FREE Pathfinder</a><a class="b bo" href="#">Try It Free →</a></div>
+  </div>
+</section>
+<section class="features"><div class="fwrap"><div class="fhead"><div class="feyebrow">NEXT GEN CURRICULUM</div><div class="fsub">A peek inside 1,400+ microcourses</div><h2>Pick a rabbit hole. Fall in.</h2><p>Every course is a door to something kids can't wait to explore.</p></div><div class="frow "><div class="fvis" style="background:linear-gradient(135deg,#360033,#0b8793)"><span>🚀</span><div class="ftag">SPACE</div></div><div class="ftxt"><h3>Inside a Black Hole</h3><p>Fall past the event horizon and out the other side. Kids explore the wildest object in the universe — where time bends, light can't escape, and physics gets strange.</p><a class="fbtn" href="#">Explore Space →</a></div></div><div class="frow rev"><div class="fvis" style="background:linear-gradient(135deg,#0f2027,#2c5364)"><span>⌨️</span><div class="ftag">CODING</div></div><div class="ftxt"><h3>Build a Game People Actually Play</h3><p>No boring 'hello world.' Learners design, code, and publish a real game their friends can play — and discover they can build anything they imagine.</p><a class="fbtn" href="#">Start Building →</a></div></div><div class="frow "><div class="fvis" style="background:linear-gradient(135deg,#06beb6,#48b1bf)"><span>🔬</span><div class="ftag">SCIENCE</div></div><div class="ftxt"><h3>The Secret Code of Life: DNA</h3><p>Crack the four-letter code written inside every living thing. From dinosaurs to your own eye color — it's all in the code, and kids learn to read it.</p><a class="fbtn" href="#">Decode It →</a></div></div><div class="frow rev"><div class="fvis" style="background:linear-gradient(135deg,#834d9b,#d04ed6)"><span>🏛️</span><div class="ftag">HISTORY</div></div><div class="ftxt"><h3>History They Never Told You</h3><p>The stories left out of the textbook. Lost civilizations, hidden heroes, and the real reasons the world turned out the way it did.</p><a class="fbtn" href="#">Uncover It →</a></div></div><div class="fmore"><a class="b bg" href="#">Browse all 1,400+ courses →</a></div></div></section>
+
+<section style="background:#06122a;padding:60px 0 40px;text-align:center">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px">
+    <div style="font-size:11px;letter-spacing:.25em;font-weight:800;color:#d6203c;text-transform:uppercase;margin-bottom:14px;font-family:'Helvetica Neue',Arial,sans-serif">How We Teach</div>
+    <h2 style="font-family:Georgia,serif;font-size:clamp(26px,4vw,42px);color:#fff;font-weight:900;margin-bottom:8px;line-height:1.1">Learning That Actually Sticks.</h2>
+    <p style="font-size:16px;color:#8faed4;margin-bottom:36px;font-style:italic;font-family:Georgia,serif">Passion-driven. Inquiry-based. Connected. Interactive.</p>
+    <img src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/54cdbcd6a_StripforLLHero.png"
+         alt="Passion Driven · Inquiry Based · Connected · Interactive"
+         style="width:100%;max-width:1000px;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:block;margin:0 auto"/>
+  </div>
+</section>
+<section class="manifesto"><div class="mwrap"><div class="mhead"><h2>We drew a line.</h2><p>Everything school got wrong — and everything learning should be.</p></div><div class="mcols"><div class="mcol no"><div class="mtitle no"><span>✕</span> What we say <b>No</b> to</div><div class="mchips"><span class="mchip cno">tests</span><span class="mchip cno">busywork</span><span class="mchip cno">lectures</span><span class="mchip cno">lines</span><span class="mchip cno">bells</span><span class="mchip cno">hall passes</span><span class="mchip cno">Common Core</span><span class="mchip cno">gender ideology</span><span class="mchip cno">indoctrination</span><span class="mchip cno">revisionist history</span><span class="mchip cno">nonsense</span><span class="mchip cno">pressure</span><span class="mchip cno">grades</span><span class="mchip cno">age segregation</span><span class="mchip cno">judging</span><span class="mchip cno">bad socialization</span><span class="mchip cno">bad language</span><span class="mchip cno">lies</span><span class="mchip cno">danger</span><span class="mchip cno">conformity</span><span class="mchip cno">blind consent</span><span class="mchip cno">hate</span><span class="mchip cno">racism</span><span class="mchip cno">people pleasing</span><span class="mchip cno">virtue signaling</span><span class="mchip cno">teacher's pet</span><span class="mchip cno">bullying</span><span class="mchip cno">drugs</span><span class="mchip cno">favoritism</span><span class="mchip cno">rush</span></div></div><div class="mcol yes"><div class="mtitle yes"><span>✓</span> What we say <b>Yes</b> to</div><div class="mchips"><span class="mchip cyes">passion</span><span class="mchip cyes">child-directed</span><span class="mchip cyes">family together</span><span class="mchip cyes">parent-friendly</span><span class="mchip cyes">self-paced</span><span class="mchip cyes">accredited learning</span><span class="mchip cyes">genuine</span><span class="mchip cyes">it sticks</span><span class="mchip cyes">it sparks</span><span class="mchip cyes">curiosity</span><span class="mchip cyes">real skills</span><span class="mchip cyes">purpose</span><span class="mchip cyes">justice</span><span class="mchip cyes">common sense</span><span class="mchip cyes">equality</span><span class="mchip cyes">freedom</span></div></div></div></div></section>
+</body></html>
