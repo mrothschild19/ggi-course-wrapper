@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benefits of Project-Based Online Schools | Limitless Learning</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #1a2744;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a2744 0%, #0d1b36 60%, #8b0000 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: #d6203c;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero h1 span { color: #d6203c; }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 700px;
+    margin: 0 auto 32px;
+    opacity: 0.88;
+    line-height: 1.7;
+    position: relative;
+  }
+  .hero-stars {
+    font-size: 24px;
+    letter-spacing: 6px;
+    opacity: 0.6;
+    position: relative;
+  }
+
+  /* INTRO SECTION */
+  .intro {
+    background: white;
+    padding: 60px 24px;
+    text-align: center;
+    border-bottom: 4px solid #d6203c;
+  }
+  .intro-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .intro h2 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: #1a2744;
+    margin-bottom: 16px;
+  }
+  .intro p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  /* CARDS SECTION */
+  .cards-section {
+    padding: 60px 24px 80px;
+    background: #f4f6fb;
+  }
+  .cards-section h2 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: #1a2744;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background: #d6203c;
+    margin: 0 auto 48px;
+    border-radius: 2px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,39,68,0.10);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid #d6203c;
+  }
+  .card:nth-child(even) { border-top-color: #1a2744; }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(26,39,68,0.18);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background: #eef1f8;
+  }
+
+  .card-body {
+    padding: 28px 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d6203c;
+    margin-bottom: 8px;
+  }
+  .card:nth-child(even) .card-num { color: #1a2744; }
+  .card-title {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 1.25rem;
+    color: #1a2744;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .card-text {
+    font-size: 0.97rem;
+    color: #555;
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  /* WHY MATTERS */
+  .why-section {
+    background: linear-gradient(135deg, #1a2744, #0d1b36);
+    color: white;
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .why-inner { max-width: 800px; margin: 0 auto; }
+  .why-section h2 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 24px;
+  }
+  .why-section h2 span { color: #d6203c; }
+  .why-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 16px;
+  }
+  .why-cta {
+    margin-top: 36px;
+    display: inline-block;
+    background: #d6203c;
+    color: white;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .why-cta:hover { background: #b01830; transform: translateY(-2px); }
+
+  /* FOOTER STRIPE */
+  .footer-stripe {
+    background: #d6203c;
+    height: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .card-img { height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Limitless Learning</div>
+  <h1>Benefits of <span>Project-Based</span><br>Online Schools</h1>
+  <p class="hero-sub">
+    Connecting academic skills to real-world questions, challenges, and creative work —
+    so students become confident, curious, and prepared for the future.
+  </p>
+  <div class="hero-stars">★ ★ ★ ★ ★</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <h2>Learning That Actually Means Something</h2>
+    <p>Project-based online schools give students a more meaningful way to learn. Instead of simply memorizing information for a test, students explore ideas, ask questions, solve problems, collaborate with others, and create projects that show what they understand.</p>
+    <p>In a project-based learning environment, students are not passive listeners — they become active participants in their education. They investigate topics, make decisions, test ideas, reflect on their progress, and share their work with others.</p>
+  </div>
+</section>
+
+<!-- 8 BENEFIT CARDS -->
+<section class="cards-section">
+  <h2>8 Core Features &amp; Benefits</h2>
+  <div class="section-divider"></div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/873ad3dd2_generated_image.png" alt="Student-Centered Learning">
+      <div class="card-body">
+        <div class="card-num">Benefit 01</div>
+        <div class="card-title">Student-Centered Learning</div>
+        <p class="card-text">Students take an active role — asking questions, making choices, and taking ownership of their work. Through meaningful projects, learners connect lessons to their own lives and interests, developing independence, responsibility, and critical thinking.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/8270f94e1_generated_image.png" alt="Collaborative Learning">
+      <div class="card-body">
+        <div class="card-num">Benefit 02</div>
+        <div class="card-title">Collaborative Learning</div>
+        <p class="card-text">Students plan, research, create, revise, and present together — building teamwork, communication, listening, and leadership skills. Collaboration prepares learners for real-world environments where complex problems require working with others.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/7caec1ac3_generated_image.png" alt="Inquiry-Based Approach">
+      <div class="card-body">
+        <div class="card-num">Benefit 03</div>
+        <div class="card-title">Inquiry-Based Approach</div>
+        <p class="card-text">Students learn by asking meaningful questions and investigating possible answers. They explore, research, experiment, and think deeply — developing the skill to ask better questions, evaluate sources, and make connections. They learn <em>how</em> to learn.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/2231a1dfc_generated_image.png" alt="Deeper Understanding">
+      <div class="card-body">
+        <div class="card-num">Benefit 04</div>
+        <div class="card-title">Deeper Understanding &amp; Skill Development</div>
+        <p class="card-text">Students apply knowledge in context rather than in isolation. This strengthens long-term understanding and builds research, writing, presentation, time management, creativity, critical thinking, and digital literacy skills — all at once.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/8819f300e_generated_image.png" alt="Real-World Problem Solving">
+      <div class="card-body">
+        <div class="card-num">Benefit 05</div>
+        <div class="card-title">Real-World Problem Solving</div>
+        <p class="card-text">Students explore challenges in science, technology, community, entrepreneurship, and everyday life. Math becomes useful for planning. Writing matters for explaining ideas. Science becomes a tool for discovery. Learning connects directly to the world.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/19526c7e3_generated_image.png" alt="Communication Skills">
+      <div class="card-body">
+        <div class="card-num">Benefit 06</div>
+        <div class="card-title">Stronger Communication Skills</div>
+        <p class="card-text">Students discuss, interview, present, write reflections, record videos, and share projects with real audiences. They become confident communicators who can explain their thinking, organize information, and present clearly — in person and digitally.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/b8994862f_generated_image.png" alt="Greater Engagement">
+      <div class="card-body">
+        <div class="card-num">Benefit 07</div>
+        <div class="card-title">Greater Engagement &amp; Motivation</div>
+        <p class="card-text">Students stay engaged when they can see the purpose behind what they are learning. Projects give students something to work toward — progress they can see, choices they can make, challenges they can solve, and finished work they can be proud of.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/2a13fcf20_generated_image.png" alt="Creativity and Confidence">
+      <div class="card-body">
+        <div class="card-num">Benefit 08</div>
+        <div class="card-title">Creativity &amp; Confidence</div>
+        <p class="card-text">Students design, create, build, write, and invent — using imagination and personal strengths. Because there is often more than one right way to complete a project, learners grow in confidence as they take ideas from beginning to end and share them with others.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="why-section">
+  <div class="why-inner">
+    <h2>Why Project-Based Online Learning <span>Matters</span></h2>
+    <p>Project-based online schools help students build the skills they need for a changing world. They support academic growth while developing curiosity, independence, collaboration, communication, creativity, and problem-solving.</p>
+    <p>For families looking for an engaging and flexible learning option, a project-based online school offers a powerful alternative to traditional education — giving students the opportunity to learn by doing, explore their interests, and develop skills that will serve them well throughout life.</p>
+    <a href="https://limitlessacademy.org" class="why-cta">Explore Limitless Learning →</a>
+  </div>
+</section>
+
+<div class="footer-stripe"></div>
+
+</body>
+</html>
