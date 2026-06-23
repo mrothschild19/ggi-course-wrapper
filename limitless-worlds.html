@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIMITLESS Course Worlds — Explorers & Visionfinders</title>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f0f2f7;color:#1a2744}
+
+/* ── FIXED HEADER ── */
+.site-header{
+  background:#1a2744;color:white;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;position:sticky;top:0;z-index:999;
+  border-bottom:3px solid #d6203c;
+}
+.site-logo{font-family:'Paytone One',sans-serif;font-size:1.4rem;color:white;text-decoration:none}
+.site-logo span{color:#d6203c}
+.header-nav{display:flex;gap:6px}
+.header-nav a{
+  color:#ccd6f6;text-decoration:none;font-size:0.85rem;font-weight:600;
+  padding:7px 14px;border-radius:6px;transition:background 0.2s
+}
+.header-nav a:hover{background:rgba(255,255,255,0.1);color:white}
+.header-nav .cta{background:#d6203c;color:white;border-radius:50px}
+.header-nav .cta:hover{background:#b01830}
+
+/* ── HERO ── */
+.page-hero{
+  background:linear-gradient(135deg,#1a2744 0%,#0d1b36 60%,#8b0000 100%);
+  color:white;padding:56px 32px 44px;text-align:center;
+}
+.page-hero .eyebrow{
+  display:inline-block;background:#d6203c;color:white;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 18px;border-radius:20px;margin-bottom:16px
+}
+.page-hero h1{
+  font-family:'Paytone One',sans-serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin-bottom:14px
+}
+.page-hero h1 span{color:#d6203c}
+.page-hero p{
+  max-width:680px;margin:0 auto 28px;opacity:0.88;
+  font-size:1.05rem;line-height:1.75
+}
+.hero-stats{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:20px
+}
+.hero-stat{
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  border-radius:12px;padding:14px 28px;text-align:center
+}
+.hero-stat .num{font-family:'Paytone One',sans-serif;font-size:1.8rem;color:#d6203c}
+.hero-stat .lbl{font-size:0.8rem;opacity:0.75;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+/* ── TOGGLE BAR ── */
+.toggle-bar{
+  background:white;border-bottom:2px solid #e2e8f0;
+  padding:14px 32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  position:sticky;top:60px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,0.07)
+}
+.toggle-label{font-size:0.85rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px}
+.toggle-btn{
+  background:#f1f5f9;border:2px solid transparent;color:#475569;
+  font-weight:700;font-size:0.85rem;padding:8px 18px;border-radius:50px;
+  cursor:pointer;transition:all 0.2s
+}
+.toggle-btn.active-exp{background:#dbeafe;border-color:#3b82f6;color:#1d4ed8}
+.toggle-btn.active-vis{background:#fce7f3;border-color:#db2777;color:#9d174d}
+.toggle-btn:hover{background:#e2e8f0}
+.search-wrap{margin-left:auto}
+.search-input{
+  border:2px solid #e2e8f0;border-radius:50px;padding:8px 18px 8px 36px;
+  font-size:0.9rem;width:260px;outline:none;transition:border 0.2s;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E") 12px center no-repeat;
+}
+.search-input:focus{border-color:#d6203c}
+
+/* ── MAIN CONTENT ── */
+.page-content{max-width:1400px;margin:0 auto;padding:32px 24px 60px}
+
+/* ── WORLD BLOCK ── */
+.world-block{
+  background:white;border-radius:16px;margin-bottom:32px;
+  overflow:hidden;box-shadow:0 4px 20px rgba(26,39,68,0.09)
+}
+.world-header{
+  display:flex;align-items:center;gap:18px;padding:20px 28px;color:white
+}
+.world-emoji{font-size:2.2rem;line-height:1}
+.world-name{font-family:'Paytone One',sans-serif;font-size:1.25rem;margin-bottom:3px}
+.world-desc{font-size:0.82rem;opacity:0.85;letter-spacing:0.3px}
+.world-counts{margin-left:auto;display:flex;gap:8px;flex-shrink:0}
+.badge{
+  font-size:0.75rem;font-weight:700;padding:5px 12px;border-radius:20px;
+  background:rgba(255,255,255,0.2);color:white;white-space:nowrap
+}
+
+/* ── PANELS ── */
+.world-panels{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #f1f5f9}
+.panel{padding:20px 24px 24px;border-right:1px solid #f1f5f9}
+.panel:last-child{border-right:none}
+.panel-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  padding-bottom:12px;border-bottom:2px solid #f1f5f9
+}
+.panel-icon{font-size:1.5rem}
+.panel-title{font-family:'Paytone One',sans-serif;font-size:1rem;color:#1a2744}
+.panel-age{font-size:0.78rem;color:#64748b;font-weight:600;margin-top:2px}
+.panel-count{
+  margin-left:auto;background:#f1f5f9;color:#475569;
+  font-size:0.78rem;font-weight:700;padding:4px 10px;border-radius:20px
+}
+.exp-panel .panel-title{color:#1d4ed8}
+.exp-panel .panel-count{background:#dbeafe;color:#1d4ed8}
+.vis-panel .panel-title{color:#9d174d}
+.vis-panel .panel-count{background:#fce7f3;color:#9d174d}
+
+/* ── CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-size:0.78rem;font-weight:500;padding:4px 10px;border-radius:20px;
+  cursor:default;transition:transform 0.15s;
+  white-space:nowrap;
+}
+.chip:hover{transform:scale(1.04)}
+.chip.exp{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe}
+.chip.vis{background:#fdf4ff;color:#7e22ce;border:1px solid #e9d5ff}
+.chip.hidden{display:none!important}
+
+/* ── SHOW/HIDE STATES ── */
+body.show-exp .vis-panel{opacity:0.3;pointer-events:none}
+body.show-vis .exp-panel{opacity:0.3;pointer-events:none}
+
+/* ── FOOTER ── */
+.page-footer{background:#1a2744;color:white;padding:40px 32px;text-align:center}
+.page-footer h3{font-family:'Paytone One',sans-serif;font-size:1.4rem;margin-bottom:12px}
+.page-footer h3 span{color:#d6203c}
+.page-footer p{opacity:0.8;margin-bottom:20px;max-width:560px;margin-left:auto;margin-right:auto}
+.footer-cta{
+  display:inline-block;background:#d6203c;color:white;font-weight:700;
+  padding:14px 36px;border-radius:50px;text-decoration:none;
+  box-shadow:0 4px 16px rgba(214,32,60,0.4)
+}
+
+@media(max-width:768px){
+  .world-panels{grid-template-columns:1fr}
+  .panel{border-right:none;border-bottom:1px solid #f1f5f9}
+  .toggle-bar{flex-direction:column;align-items:flex-start;gap:8px}
+  .search-wrap{margin-left:0;width:100%}
+  .search-input{width:100%}
+  .world-counts{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-home.html" class="site-logo">LIMIT<span>LESS</span></a>
+  <nav class="header-nav">
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-academics.html">Academics</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-benefits.html">Why PBL?</a>
+    <a href="https://mrothschild19.github.io/veritaspathfinder/" class="cta">Find Your Path →</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="eyebrow">Course Catalog</div>
+  <h1>Find Your <span>World</span></h1>
+  <p>Every Limitless course lives in one of 8 Worlds. Pick your age group, find your passion, and start exploring. No tests. No busywork. Just real learning that matters.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">269</div><div class="lbl">Explorer Courses<br><small>Ages 5–11</small></div></div>
+    <div class="hero-stat"><div class="num">424</div><div class="lbl">Visionfinder Courses<br><small>Ages 12–21</small></div></div>
+    <div class="hero-stat"><div class="num">8</div><div class="lbl">Worlds to<br>Explore</div></div>
+    <div class="hero-stat"><div class="num">693+</div><div class="lbl">Total<br>Microcourses</div></div>
+  </div>
+</div>
+
+<div class="toggle-bar">
+  <span class="toggle-label">Show:</span>
+  <button class="toggle-btn" id="btn-both" onclick="setFilter('both')">Both Age Groups</button>
+  <button class="toggle-btn" id="btn-exp" onclick="setFilter('exp')">🧭 Explorers (5–11)</button>
+  <button class="toggle-btn" id="btn-vis" onclick="setFilter('vis')">🔭 Visionfinders (12–21)</button>
+  <div class="search-wrap">
+    <input class="search-input" type="text" placeholder="Search courses..." oninput="searchCourses(this.value)" />
+  </div>
+</div>
+
+<div class="page-content" id="worldsContainer">
+
+<div class="world-block" id="The_Maker_World">
+  <div class="world-header" style="background:#e85d04">
+    <div class="world-emoji">🔨</div>
+    <div>
+      <div class="world-name">The Maker World</div>
+      <div class="world-desc">Building · Engineering · Robotics · Invention · Coding · 3D Design</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">27 Explorer</span>
+      <span class="badge vis-badge">39 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">27</div>
+      </div>
+      <div class="chips"><span class="chip exp">Benjamin Franklin: America's First Great Inventor and Thinker</span><span class="chip exp">Candle Making 101</span><span class="chip exp">Creating a Sonic 2 Power-Up Diorama with Clay</span><span class="chip exp">Famous Inventors</span><span class="chip exp">Grow Your Own Vegetable Garden</span><span class="chip exp">Home Economics</span><span class="chip exp">How a Microwave Oven Works</span><span class="chip exp">How are pencils made?</span><span class="chip exp">How do things glow in the dark?</span><span class="chip exp">How is glass made?</span><span class="chip exp">How to Make Clay at Home</span><span class="chip exp">Intro to Redstone in Minecraft</span><span class="chip exp">Introduction to Botany</span><span class="chip exp">Minecraft Co-Build Workshop</span><span class="chip exp">Minecraft Creative Mode Masterclass</span><span class="chip exp">Minecraft SMP Group for Casual Players</span><span class="chip exp">Polymer Clay Jewelry Design for Beginners</span><span class="chip exp">Roblox Game Design with Lua</span><span class="chip exp">Sculpting Ideas in Clay</span><span class="chip exp">Secrets of Roblox</span><span class="chip exp">Sewing</span><span class="chip exp">Sewing Machine 101: Make Your First Dress</span><span class="chip exp">The Frozen Treat History | Invention of Popsicles</span><span class="chip exp">The Strategies for Fortnite</span><span class="chip exp">The Wright Brothers: Pioneers of Flight</span><span class="chip exp">Thomas Edison: The Innovator of the Light Bulb</span><span class="chip exp">Weaving for Beginners</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">39</div>
+      </div>
+      <div class="chips"><span class="chip vis">100+ Computer Science Concepts Explained</span><span class="chip vis">3D Printing</span><span class="chip vis">Alan Turing: Celebrating the Life of a Genius</span><span class="chip vis">Astrodynamics: Kerbal Space Program</span><span class="chip vis">Aviation: Principles, Practice, and Industry Fundamentals</span><span class="chip vis">Azure Cloud Fundamentals</span><span class="chip vis">COMPUTER SCIENCE explained in 17 Minutes</span><span class="chip vis">Colorwork Sock Knitting Mastery</span><span class="chip vis">Computer Information Systems</span><span class="chip vis">Construction</span><span class="chip vis">Digital Technology: The Invention of the QR Code</span><span class="chip vis">Game & Simulation Programming</span><span class="chip vis">Ham Radio 101</span><span class="chip vis">Horticulture</span><span class="chip vis">Hydrology</span><span class="chip vis">Intro to Computer Forensics</span><span class="chip vis">Intro to Culinary Techniques</span><span class="chip vis">Intro to Making Games in Unreal Engine 5</span><span class="chip vis">Introduction to 3D Modeling</span><span class="chip vis">Introduction to Stone Setting for Jewelry</span><span class="chip vis">Landscape Design</span><span class="chip vis">Mechanical Engineering</span><span class="chip vis">Michael Faraday: Pioneer of Electromagnetism</span><span class="chip vis">Pattern Making Techniques for Recreating Your Favorite Garments</span><span class="chip vis">Perfect Your Pastry Skills</span><span class="chip vis">Project Based Learning: App Development for Social Good</span><span class="chip vis">Project Based Learning: Architectural Design Portfolio</span><span class="chip vis">Project Based Learning: Game Design and Development</span><span class="chip vis">Project-Based Learning: Engineering Design Challenge</span><span class="chip vis">Quantum Computing</span><span class="chip vis">Resin Jewelry Design</span><span class="chip vis">Robotics</span><span class="chip vis">Sewing and Design Specialization</span><span class="chip vis">Textile Design</span><span class="chip vis">Turing Machines: The Accidental Birth of Computer Science</span><span class="chip vis">Underwater Constructions: Engineering Marvels</span><span class="chip vis">Virtual Reality and Augmented Reality</span><span class="chip vis">Wax Carving Techniques for Jewelry Design</span><span class="chip vis">What's It Like to be a Video Game Designer?</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Storyteller_World">
+  <div class="world-header" style="background:#2d6a4f">
+    <div class="world-emoji">📖</div>
+    <div>
+      <div class="world-name">The Storyteller World</div>
+      <div class="world-desc">Reading · Writing · Literature · History · Film · Drama</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">88 Explorer</span>
+      <span class="badge vis-badge">91 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">88</div>
+      </div>
+      <div class="chips"><span class="chip exp">A Day in the Life of Abraham Lincoln</span><span class="chip exp">A Day in the Life of Albert Einstein</span><span class="chip exp">A Day in the Life of George Washington</span><span class="chip exp">A Day in the Life of John F Kennedy</span><span class="chip exp">A Day in the Life of Princess Diana</span><span class="chip exp">American Folklore</span><span class="chip exp">Black Beauty</span><span class="chip exp">Charlotte's Web</span><span class="chip exp">Christopher Columbus: Explorer of the New World</span><span class="chip exp">Dragon Masters</span><span class="chip exp">Exploring Diary of a Wimpy Kid</span><span class="chip exp">Exploring the Universe of 'A Wrinkle in Time'</span><span class="chip exp">Francis Scott Key: The Poet Behind the Star-Spangled Banner</span><span class="chip exp">Heidi: A Journey Through the Swiss Alps</span><span class="chip exp">Helen Keller - The First Deaf-Blind Graduate</span><span class="chip exp">How Did King Tut Die?</span><span class="chip exp">How The Great Pyramid of Giza Was Built</span><span class="chip exp">John Adams & Thomas Jefferson</span><span class="chip exp">Journey to the Center of the Earth</span><span class="chip exp">Leo & Layla's History Adventures with Adam Smith</span><span class="chip exp">Leo & Layla's History Adventures with Benjamin Franklin</span><span class="chip exp">Leo & Layla's History Adventures with President Ronald Reagan</span><span class="chip exp">Little House on the Prairie</span><span class="chip exp">Maniac Magee</span><span class="chip exp">Meet American Hero Daniel Boone</span><span class="chip exp">Meet American Hero Davy Crockett</span><span class="chip exp">Meet American Hero Fred Rogers</span><span class="chip exp">Meet American Hero George Washington</span><span class="chip exp">Meet American Hero Johnny Appleseed</span><span class="chip exp">Meet American Hero Milton Hershey</span><span class="chip exp">Meet American Heroes: Lewis & Clark</span><span class="chip exp">Meet American Heroine Eleanor Roosevelt</span><span class="chip exp">Meet American Heroine Susan B. Anthony</span><span class="chip exp">Number the Stars</span><span class="chip exp">Otto's Tales: 10 Steps to Freedom</span><span class="chip exp">Otto's Tales: Celebrating Mother's Day</span><span class="chip exp">Otto's Tales: Discovering the American Trinity</span><span class="chip exp">Otto's Tales: It's Flag Day!</span><span class="chip exp">Otto's Tales: King Midas</span><span class="chip exp">Otto's Tales: Legend of the Corn Husk Doll</span><span class="chip exp">Otto's Tales: Let's Visit an American Farm</span><span class="chip exp">Otto's Tales: Little George and the Cherry Tree</span><span class="chip exp">Otto's Tales: Tall Paul Bunyan</span><span class="chip exp">Otto's Tales: The Boy Who Cried Wolf</span><span class="chip exp">Otto's Tales: The Crow & The Pitcher</span><span class="chip exp">Otto's Tales: The Emperor's New Clothes</span><span class="chip exp">Otto's Tales: The Kind Stranger</span><span class="chip exp">Otto's Tales: The Legend of John Henry</span><span class="chip exp">Otto's Tales: The Lion & the Mouse</span><span class="chip exp">Otto's Tales: The Mighty Maccabees</span><span class="chip exp">Otto's Tales: Today Is Christmas</span><span class="chip exp">Otto's Tales: Today Is Columbus Day with Michael Knowles</span><span class="chip exp">Otto's Tales: Today Is Veterans Day</span><span class="chip exp">Otto's Tales: Today is Father's Day</span><span class="chip exp">Percy Jackson and the Olympians</span><span class="chip exp">Peter Pan: An Adventure in Neverland</span><span class="chip exp">Pippi Longstocking: An Adventurous Journey</span><span class="chip exp">Pixar Moviemaking</span><span class="chip exp">Ruby Bridges for Kids</span><span class="chip exp">Street Smarts: American Holidays</span><span class="chip exp">Street Smarts: The Declaration of Independence</span><span class="chip exp">Street Smarts: The States</span><span class="chip exp">The Black Arrow: A Tale of the Two Roses</span><span class="chip exp">The Greatest Warrior In History: Alexander The Great for Kids</span><span class="chip exp">The Happy Hollisters BOOK ONE</span><span class="chip exp">The Happy Hollisters at Sea Gull Beach</span><span class="chip exp">The Happy Hollisters on a River Adventure</span><span class="chip exp">The Story of Martin Luther King Jr.</span><span class="chip exp">The Voyages of Doctor Dolittle</span><span class="chip exp">The Wild Robot</span><span class="chip exp">The Wind in the Willows</span><span class="chip exp">Tom Sawyer & Huckleberry Finn: Adventures in Classic Literature</span><span class="chip exp">Treasure Island</span><span class="chip exp">Tuck Everlasting</span><span class="chip exp">Unboxed, USA: Alaska</span><span class="chip exp">Unboxed, USA: California</span><span class="chip exp">Unboxed, USA: Georgia</span><span class="chip exp">Unboxed, USA: Louisiana</span><span class="chip exp">Unboxed, USA: Massachusetts</span><span class="chip exp">Unboxed, USA: Minnesota</span><span class="chip exp">Unboxed, USA: Montana</span><span class="chip exp">Unboxed, USA: New Mexico</span><span class="chip exp">Unboxed, USA: Ohio</span><span class="chip exp">Unboxed, USA: Virginia</span><span class="chip exp">Unboxed, USA: Washington</span><span class="chip exp">Unboxed, USA: Wisconsin</span><span class="chip exp">Where the Red Fern Grows</span><span class="chip exp">Wonder</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">91</div>
+      </div>
+      <div class="chips"><span class="chip vis">A Raisin in the Sun</span><span class="chip vis">Abraham Lincoln: The President Who Saved the Union</span><span class="chip vis">African American Heroes</span><span class="chip vis">African American Literature</span><span class="chip vis">Age of Revolution</span><span class="chip vis">Albert Einstein: The Man Who Reshaped Our Universe</span><span class="chip vis">Alexander Hamilton and Capitalism: Making America</span><span class="chip vis">Alexander Hamilton: America's First Secretary of Treasury</span><span class="chip vis">Benjamin Banneker: Surveying The Future of America</span><span class="chip vis">Black History: A Comprehensive Course</span><span class="chip vis">Cinema History: From Silent Pictures to Digital Revolution</span><span class="chip vis">Classical Archaeology: Exploration of Ancient Greece and Rome</span><span class="chip vis">Constitution 101</span><span class="chip vis">Contemporary Literature</span><span class="chip vis">Creating a News Show or Podcast on Current Events</span><span class="chip vis">Creative Writing Mastery</span><span class="chip vis">Dr Jekyll and Mr Hyde</span><span class="chip vis">Early American Civilizations</span><span class="chip vis">Every US President Explained</span><span class="chip vis">Exploring Moby Dick</span><span class="chip vis">Exploring the Depths of Frankenstein</span><span class="chip vis">Exploring the Themes and Characters of Little Women</span><span class="chip vis">Filmmaking</span><span class="chip vis">Franklin Roosevelt: The Great Depression</span><span class="chip vis">Frederick Douglass: From Slave to Statesman</span><span class="chip vis">Going Undercover in an Insane Asylum: Nelly Bly</span><span class="chip vis">Golda Meir: From Milwaukee to Jerusalem</span><span class="chip vis">Hamlet: Themes, Characters, and Analysis</span><span class="chip vis">How did Hitler Rise to Power?</span><span class="chip vis">I Have a Dream: The Speech that Changed America</span><span class="chip vis">Investigative Journalism</span><span class="chip vis">Israel: History, Culture, and Contemporary Society</span><span class="chip vis">Madison & Montesquieu: The Men Who Gave Us Checks and Balances</span><span class="chip vis">Mahatma Gandhi: Life, Philosophy, and Legacy</span><span class="chip vis">Mao Zedong: The Life and Legacy</span><span class="chip vis">Martin Luther King Jr.: Life, Legacy, and Leadership</span><span class="chip vis">Mary Ludwig Hays: Woman Warrior of the American Revolution</span><span class="chip vis">Menachem Begin & Anwar Sadat: A Journey to Peace</span><span class="chip vis">Mother Teresa: Life, Work, and Legacy</span><span class="chip vis">My Brother Sam is Dead</span><span class="chip vis">Nelson Mandela: Life, Leadership, and Legacy</span><span class="chip vis">Of Mice and Men</span><span class="chip vis">Pope John Paul II: The Pope Who Stood Against Communism</span><span class="chip vis">President Trump in 2025: The First 100 Days</span><span class="chip vis">Pride and Prejudice</span><span class="chip vis">Project Based Learning: Crime Statistics and Prevention Strategies</span><span class="chip vis">Project Based Learning: Foreign Language Immersion Documentary</span><span class="chip vis">Project Based Learning: Historical Documentary Series</span><span class="chip vis">Project Based Learning: Interactive Digital Literature Analysis</span><span class="chip vis">Project Based Learning: Investigative Journalism Project</span><span class="chip vis">Project Based Learning: Political Advocacy Campaign</span><span class="chip vis">Queen Elizabeth I: The Unifying Queen of England</span><span class="chip vis">Robert Wright & Kenneth Moore: World War II's Medics of Mercy</span><span class="chip vis">Roll of Thunder, Hear My Cry</span><span class="chip vis">Romeo and Juliet: A Tragic Love Story</span><span class="chip vis">Rosa Parks: The Woman Who Sparked a Movement</span><span class="chip vis">Science Fiction</span><span class="chip vis">Screenwriting</span><span class="chip vis">Storytelling Techniques for Conveying a Message</span><span class="chip vis">Street Smarts: The Constitution</span><span class="chip vis">Street Smarts: The Executive Branch</span><span class="chip vis">Street Smarts: The Judicial Branch</span><span class="chip vis">Street Smarts: The Legislative Branch</span><span class="chip vis">Susan B. Anthony: Crusader for Women's Right to Vote</span><span class="chip vis">Teddy Roosevelt: The Cowboy Who Became President</span><span class="chip vis">The American Civil Rights Movement</span><span class="chip vis">The Bill of Rights</span><span class="chip vis">The Cold War Explained In 15 Minutes</span><span class="chip vis">The Cuban Missile Crisis</span><span class="chip vis">The Exceptional Life of Benjamin Banneker</span><span class="chip vis">The Giver</span><span class="chip vis">The Great Gatsby</span><span class="chip vis">The Hobbit</span><span class="chip vis">The Hunger Games</span><span class="chip vis">The Language of Lying</span><span class="chip vis">The Legendary Tale of Achilles: Greek Mythology's Greatest Warrior</span><span class="chip vis">The Man In Iron Lung: Paul Alexander's Journey</span><span class="chip vis">The Odyssey</span><span class="chip vis">The Picture of Dorian Gray</span><span class="chip vis">The Presidency of Barack Obama</span><span class="chip vis">The Underground Railroad - Pathways to Freedom</span><span class="chip vis">Thomas Jefferson and Equality: Making America</span><span class="chip vis">Uncrackable! The Heroic Native American Code Talkers</span><span class="chip vis">Understanding the Race to Space in the 1960s Cold War</span><span class="chip vis">WWI: The War That Changed Everything</span><span class="chip vis">Was it Wrong to Drop the Atom Bomb on Japan?</span><span class="chip vis">What History Tells Us About the Future</span><span class="chip vis">What makes a Poem A Poem?</span><span class="chip vis">William Wilberforce: Ending the Slave Trade</span><span class="chip vis">Winston Churchill: Statesman, Warrior, and Icon</span><span class="chip vis">Women's Rights Movement</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Explorer_World">
+  <div class="world-header" style="background:#1565c0">
+    <div class="world-emoji">🌍</div>
+    <div>
+      <div class="world-name">The Explorer World</div>
+      <div class="world-desc">Science · Nature · Astronomy · Animals · Geography · Ecology</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">44 Explorer</span>
+      <span class="badge vis-badge">48 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">44</div>
+      </div>
+      <div class="chips"><span class="chip exp">All About Maps (K-5)</span><span class="chip exp">Animals With Superpowers</span><span class="chip exp">Animals in Danger of Extinction</span><span class="chip exp">Are Mermaids Real?</span><span class="chip exp">Carnivorous Plants: Nature's Unique Predators</span><span class="chip exp">Cat vs. Dog: Choosing the Better Pet</span><span class="chip exp">Deadliest Sea Creatures</span><span class="chip exp">ELEPHANTS VS. BEES: Who is SMARTER?!</span><span class="chip exp">Eco-Friendly Habits</span><span class="chip exp">Ecosystems</span><span class="chip exp">Explore Marine Life for Kids</span><span class="chip exp">Explore the Animal Kingdom for Kids</span><span class="chip exp">First Grade Science</span><span class="chip exp">How Big is The Universe?</span><span class="chip exp">How Do Your Body Parts Work?</span><span class="chip exp">How deep does the ocean go?</span><span class="chip exp">Layers Of Soil</span><span class="chip exp">Learn About Space Technologies</span><span class="chip exp">Let's Visit Israel</span><span class="chip exp">Let's Visit Jamaica</span><span class="chip exp">Let's Visit London</span><span class="chip exp">Let's Visit Paris</span><span class="chip exp">Let's Visit the Rainforest</span><span class="chip exp">Level 1 to 100 Science Experiments</span><span class="chip exp">Life Cycle of a Frog</span><span class="chip exp">Look Inside The Human Body</span><span class="chip exp">Mysteries of The Moon</span><span class="chip exp">Planets 101</span><span class="chip exp">Plate Tectonics for Kids</span><span class="chip exp">Recycling for Kids</span><span class="chip exp">Stars in the Sky</span><span class="chip exp">The Human Heart</span><span class="chip exp">The Science of Itching</span><span class="chip exp">Training an Emotional Support Dog</span><span class="chip exp">Weird Animals In The World</span><span class="chip exp">Welcome To Jurassic World</span><span class="chip exp">What If The Earth Stopped Spinning?</span><span class="chip exp">What Is Matter?</span><span class="chip exp">What Is the Greenhouse Effect?</span><span class="chip exp">Why Are Minerals Important?</span><span class="chip exp">Why Do We Get Allergies?</span><span class="chip exp">Why Is Ocean Water Salty?</span><span class="chip exp">Women in Space: Inspiring Modern & Historic Female Contributions</span><span class="chip exp">Wonders of the World</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">48</div>
+      </div>
+      <div class="chips"><span class="chip vis">All of Physics in 14 Minutes</span><span class="chip vis">Astrobiology: Exploring Life Beyond Earth</span><span class="chip vis">Astronomy: From Ancient Observations to the Newest Discoveries</span><span class="chip vis">Astrophysics: Understanding the Cosmos</span><span class="chip vis">Biodiversity</span><span class="chip vis">Biological Warfare</span><span class="chip vis">Biology Explained in 17 Minutes</span><span class="chip vis">Black Holes Explained: From Birth to Death</span><span class="chip vis">Chaos: The Science of the Butterfly Effect</span><span class="chip vis">Could Humans Live On Mars?</span><span class="chip vis">Critical Examination of Darwin's Theory of Evolution</span><span class="chip vis">Earth Science</span><span class="chip vis">Ecology and Conservation</span><span class="chip vis">Exploring String Theory</span><span class="chip vis">Exploring the Big Bang Theory</span><span class="chip vis">Exploring the Possibilities of Time Travel</span><span class="chip vis">Foundations of Nutrition Science</span><span class="chip vis">Genetic Engineering Will Change Everything Forever – CRISPR</span><span class="chip vis">Genetics Life Science</span><span class="chip vis">Health Education: Foundations for Wellness</span><span class="chip vis">History of Nuclear Power</span><span class="chip vis">How Does Chemotherapy Work?</span><span class="chip vis">How the Food You Eat Affects Your Brain</span><span class="chip vis">Human Anatomy and Physiology</span><span class="chip vis">Human Cell</span><span class="chip vis">Human Extinction</span><span class="chip vis">Introduction to Biotechnology</span><span class="chip vis">Introduction to Geology</span><span class="chip vis">Introduction to Meteorology</span><span class="chip vis">Introduction to Paleontology</span><span class="chip vis">Multiverse: Is Our Universe the Only Universe?</span><span class="chip vis">Nutrition: You Are What You Eat</span><span class="chip vis">Project Based Learning: Biome Restoration</span><span class="chip vis">Project Based Learning: Community Environmental Impact Assessment</span><span class="chip vis">Project Based Learning: Space Exploration Simulation</span><span class="chip vis">Project Based Learning: Sustainable Food Systems Analysis</span><span class="chip vis">Quantum Physics and the Heisenberg Uncertainty Principle</span><span class="chip vis">Robert Oppenheimer: The Manhattan Project, The Atomic Bomb, The Ethics</span><span class="chip vis">TIMELAPSE OF THE ENTIRE UNIVERSE</span><span class="chip vis">The Day the Dinosaurs Died – Minute by Minute</span><span class="chip vis">The Fermi Paradox — Where Are All The Aliens?</span><span class="chip vis">The Fundamentals of Space-Time</span><span class="chip vis">The Genius of Marie Curie</span><span class="chip vis">Timelapse of the Future: A Journey to the End of Time</span><span class="chip vis">Understanding Viral Host Jumps</span><span class="chip vis">Veterinary Medicine</span><span class="chip vis">What Is DNA? The Blueprint of Life</span><span class="chip vis">What Is GENETIC Engineering?</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Creator_World">
+  <div class="world-header" style="background:#7b2d8b">
+    <div class="world-emoji">🎨</div>
+    <div>
+      <div class="world-name">The Creator World</div>
+      <div class="world-desc">Art · Illustration · Fashion · Photography · Graphic Design · Animation</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">11 Explorer</span>
+      <span class="badge vis-badge">30 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">11</div>
+      </div>
+      <div class="chips"><span class="chip exp">12 Drawing Exercises to Improve Your Art Skills</span><span class="chip exp">7 WAYS to fill up YOUR SKETCHBOOK</span><span class="chip exp">Drawing Fundamentals</span><span class="chip exp">Kids Describe the Future to an Illustrator</span><span class="chip exp">Kids Try Making Pottery with a Potter</span><span class="chip exp">Learn To Draw: Sketching Basics and Materials</span><span class="chip exp">Mona Lisa: Great Art Explained</span><span class="chip exp">The Joy and Insight of Learning to Draw</span><span class="chip exp">Vincent Van Gogh's The Starry Night: Great Art Explained</span><span class="chip exp">Why Is The Mona Lisa So Famous?</span><span class="chip exp">Why people believe they can't draw - and how to prove they can</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">30</div>
+      </div>
+      <div class="chips"><span class="chip vis">21 Art Tips That Will ACTUALLY Improve Your Art</span><span class="chip vis">25 Essential Drawing Exercises</span><span class="chip vis">A Day in the Life of a Sculptor</span><span class="chip vis">A Day in the Life of an Animator</span><span class="chip vis">A Day in the Life of an Artist</span><span class="chip vis">Art History: Modern Art</span><span class="chip vis">Canva for Beginners: Create Professional Designs</span><span class="chip vis">Color Theory for Noobs</span><span class="chip vis">Content Creation and Editing for Instagram Stories</span><span class="chip vis">Content Creation with AI</span><span class="chip vis">Cosmetology</span><span class="chip vis">Creating Presentations with AI</span><span class="chip vis">Design and Create a Clothing Collection from Scratch</span><span class="chip vis">Digital Illustration: Create Manga Characters</span><span class="chip vis">Fashion Styling: Design Your Looks</span><span class="chip vis">History of Fashion Design</span><span class="chip vis">Impressionism</span><span class="chip vis">Interior Design</span><span class="chip vis">Introduction to Abstract Painting</span><span class="chip vis">Introduction to Adobe Photoshop</span><span class="chip vis">Introduction to Fashion Design</span><span class="chip vis">Introduction to Professional Makeup Techniques</span><span class="chip vis">Learn to Draw in 30 Days</span><span class="chip vis">Learn to Draw: Shading Techniques</span><span class="chip vis">Learn to Draw: Simplifying Objects and Learning to See</span><span class="chip vis">Photography Basics</span><span class="chip vis">Project Based Learning: Exploring Art Movements and Artists</span><span class="chip vis">Project Based Learning: Fashion Design Collection</span><span class="chip vis">Specialization in Graphic Design and Visual Communication</span><span class="chip vis">Studio Art</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Performer_World">
+  <div class="world-header" style="background:#b5179e">
+    <div class="world-emoji">🎵</div>
+    <div>
+      <div class="world-name">The Performer World</div>
+      <div class="world-desc">Music · Dance · Theater · Public Speaking · Athletics · Voice</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">5 Explorer</span>
+      <span class="badge vis-badge">12 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">5</div>
+      </div>
+      <div class="chips"><span class="chip exp">Cristiano Ronaldo: The Life of a Football Legend for Kids</span><span class="chip exp">How do magicians trick people?</span><span class="chip exp">How to Read Music</span><span class="chip exp">Kids Meet A Mime</span><span class="chip exp">Kids Meet a Magician!</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">12</div>
+      </div>
+      <div class="chips"><span class="chip vis">Advanced Chess Strategies</span><span class="chip vis">Blues Music: The Soul of American Sound</span><span class="chip vis">Careers in Music</span><span class="chip vis">Equine Assisted Therapy</span><span class="chip vis">Intro to Music Therapy</span><span class="chip vis">Music Therapy</span><span class="chip vis">Project Based Learning: Music Production</span><span class="chip vis">Project Based Learning: Ted Talk Video Public Speaking</span><span class="chip vis">Songwriting: The Art and Craft of Musical Composition</span><span class="chip vis">The Art of Effective Communication</span><span class="chip vis">The History of Rock and Roll</span><span class="chip vis">The Music Business</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Thinker_World">
+  <div class="world-header" style="background:#0077b6">
+    <div class="world-emoji">🧠</div>
+    <div>
+      <div class="world-name">The Thinker World</div>
+      <div class="world-desc">Math · Logic · Philosophy · Chess · Coding · Puzzles · Strategy</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">6 Explorer</span>
+      <span class="badge vis-badge">52 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">6</div>
+      </div>
+      <div class="chips"><span class="chip exp">Daylight Saving Time Explained</span><span class="chip exp">Internet Safety: Protecting Yourself Online</span><span class="chip exp">Invention of Zero</span><span class="chip exp">What If You Could Time Travel?</span><span class="chip exp">What Is Pythagoras Theorem?</span><span class="chip exp">Why Do We Have LEAP YEARS?</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">52</div>
+      </div>
+      <div class="chips"><span class="chip vis">5 Life Changing Habits from the Stoics</span><span class="chip vis">Artificial Intelligence and Fraud</span><span class="chip vis">Chess Mastery: From Basics to Professional Play</span><span class="chip vis">Cryptography Essentials for Developers</span><span class="chip vis">Did The Future Already Happen? - The Paradox of Time</span><span class="chip vis">Euler's Formula: Visualizing the Beauty of Mathematics</span><span class="chip vis">Existentialism</span><span class="chip vis">Generative AI in a Nutshell</span><span class="chip vis">Graham's Hierarchy of Disagreement</span><span class="chip vis">HACKING: Protect Yourself From Hackers</span><span class="chip vis">How To Count Past Infinity</span><span class="chip vis">How To Remember Everything You Learn</span><span class="chip vis">How to Learn: Pretty Much Anything</span><span class="chip vis">How to Think Clearly: The Philosophy of Marcus Aurelius</span><span class="chip vis">Introduction to Algorithms</span><span class="chip vis">Introduction to Machine Learning Algorithms</span><span class="chip vis">LSAT Prep</span><span class="chip vis">MCAT Preparation Course</span><span class="chip vis">Mastering Time Management</span><span class="chip vis">Mastery: How to Learn Anything Fast</span><span class="chip vis">Math is the hidden secret to understanding the world</span><span class="chip vis">Math's Fundamental Flaw</span><span class="chip vis">Nietzsche: God Is Dead</span><span class="chip vis">Nihilism: The Belief in Nothing</span><span class="chip vis">Philosophy & Ethics</span><span class="chip vis">Plato's Allegory of the Cave</span><span class="chip vis">Project Based Learning: Philosophy Symposium</span><span class="chip vis">Project-Based Learning: Psychology Research Study</span><span class="chip vis">Python Power-Up Course: Step Into Coding in 5 Weeks</span><span class="chip vis">Question Everything: A Critical Thinking Course</span><span class="chip vis">SAT Math Prep</span><span class="chip vis">The 100 Prisoners Puzzle</span><span class="chip vis">The Banach-Tarski Paradox</span><span class="chip vis">The Feynman Technique</span><span class="chip vis">The Genius Math of Modern Encryption</span><span class="chip vis">The Mandelbrot Set</span><span class="chip vis">The Map of Mathematics</span><span class="chip vis">The Oldest Unsolved Problem in Mathematics</span><span class="chip vis">The Paradox at the Heart of Mathematics</span><span class="chip vis">The Philosophy of Cynicism</span><span class="chip vis">The SAT Question Everyone Got Wrong</span><span class="chip vis">The Simple Solution to Traffic</span><span class="chip vis">The Simplest Math Problem No One Can Solve - Collatz Conjecture</span><span class="chip vis">The Story of (almost) All Numbers</span><span class="chip vis">The Trolley Problem in Real Life</span><span class="chip vis">Top 10 Ways AI Can Save You Time</span><span class="chip vis">Understanding Multiple Intelligences</span><span class="chip vis">Understanding the Multiverse</span><span class="chip vis">What History Tells Us About the Future</span><span class="chip vis">What Is A Fractal?</span><span class="chip vis">What Is A Paradox?</span><span class="chip vis">What is Artificial Intelligence?</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Helper_World">
+  <div class="world-header" style="background:#d6203c">
+    <div class="world-emoji">🤝</div>
+    <div>
+      <div class="world-name">The Helper World</div>
+      <div class="world-desc">Faith · Psychology · Community · Medicine · Ministry · Social Work</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">79 Explorer</span>
+      <span class="badge vis-badge">62 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">79</div>
+      </div>
+      <div class="chips"><span class="chip exp">3 Times GOD Changed HEARTS</span><span class="chip exp">A Day in the Life of Moses</span><span class="chip exp">Amazing Women of the Bible to Inspire Girls</span><span class="chip exp">Answering Kids' BIG Questions About Jesus' Resurrection</span><span class="chip exp">Babysitting 101</span><span class="chip exp">Be the Best You</span><span class="chip exp">Character Traits: Becoming the Best You!</span><span class="chip exp">Daniel: Faith over Fear</span><span class="chip exp">Escape Plan Which Can Save Your Life</span><span class="chip exp">Extraordinary Women in the Bible</span><span class="chip exp">Gideon: A Faithful Judge of Israel</span><span class="chip exp">History of Christianity: From Jewish Roots to Global Faith</span><span class="chip exp">Honoring Your Parents: A Guide to Family Values</span><span class="chip exp">How Does It All End? Understanding Revelation for Kids</span><span class="chip exp">How Jesus DEFEATS Sin!</span><span class="chip exp">How Moses Went from Prince to Prophet</span><span class="chip exp">How To Survive A House Fire</span><span class="chip exp">Jesus and the Sermon on the Mount</span><span class="chip exp">Jesus vs. Sin</span><span class="chip exp">Joseph: From Prison to Pharaoh's Right Hand</span><span class="chip exp">Kids Meet A Deaf Person</span><span class="chip exp">Kids Meet A Woman With Alzheimer's</span><span class="chip exp">Kids Meet a Guide Dog for the Blind</span><span class="chip exp">Kids Meet a Kid with Cancer</span><span class="chip exp">King David: The Underdog King of Israel</span><span class="chip exp">Let's Meet a Volunteer: Honoring Holocaust Survivors</span><span class="chip exp">Loving God Above All</span><span class="chip exp">Noah and the Great Flood</span><span class="chip exp">Otto's Tales: Daniel & the Lions</span><span class="chip exp">Otto's Tales: Noah and the Rainbow</span><span class="chip exp">Paul's Shocking Encounter with Jesus</span><span class="chip exp">Ruth: A Woman of Loyalty and Faithfulness</span><span class="chip exp">Study of Original Sin</span><span class="chip exp">The Amazing Life of King David: Bible Stories For Kids</span><span class="chip exp">The Amazing Messages of Bible Prophets</span><span class="chip exp">The Amazing Story of Paul's Life</span><span class="chip exp">The Birth of Jesus - The Christmas Story</span><span class="chip exp">The Gratitude Experiment: Strengthening Character</span><span class="chip exp">The Journey of David: From Shepherd to King</span><span class="chip exp">The Journey of Moses: From Prince to Prophet</span><span class="chip exp">The Last Supper: A Journey Through History</span><span class="chip exp">The Man Who Prophesied Jesus</span><span class="chip exp">The Reason JESUS Died (and Why It Matters)</span><span class="chip exp">The Story of Abraham</span><span class="chip exp">The Story of Abraham and Isaac</span><span class="chip exp">The Story of Cain and Abel</span><span class="chip exp">The Story of David and Goliath</span><span class="chip exp">The Story of Genesis</span><span class="chip exp">The Story of How the Church Began</span><span class="chip exp">The Story of Jesus' AMAZING Miracles</span><span class="chip exp">The Story of Jesus' Baptism</span><span class="chip exp">The Story of Jesus' Death for Kids</span><span class="chip exp">The Story of Joseph and His Colorful Coat</span><span class="chip exp">The Story of King David</span><span class="chip exp">The Story of Miriam and Moses</span><span class="chip exp">The Story of Moses Parting the Red Sea</span><span class="chip exp">The Story of Moses and the Burning Bush</span><span class="chip exp">The Story of Passover</span><span class="chip exp">The Story of Queen Esther: Women of the Bible</span><span class="chip exp">The Story of Ruth</span><span class="chip exp">The Story of Ruth and Naomi: Women of the Bible</span><span class="chip exp">The Story of the Walls of Jericho</span><span class="chip exp">The Story of the Woman at the Well</span><span class="chip exp">The Symbols of the End Times</span><span class="chip exp">Theodor Herzl: Visionary of Modern Israel</span><span class="chip exp">Understanding Bible Verses: Grace Through Faith</span><span class="chip exp">Understanding Jesus' Resurrection</span><span class="chip exp">Understanding the Fruits of the Spirit</span><span class="chip exp">What Does it Feel Like to Have Autism?</span><span class="chip exp">What Happened AFTER David Defeated Goliath?</span><span class="chip exp">What are the Gospels of the Bible?</span><span class="chip exp">What is Dyslexia?</span><span class="chip exp">When Jesus Raised the Dead</span><span class="chip exp">When Jesus Walked on Water</span><span class="chip exp">Who Wrote Most of the New Testament?</span><span class="chip exp">Who is Abraham?</span><span class="chip exp">Who is Moses?</span><span class="chip exp">Why is Jesus Called The Messiah?</span><span class="chip exp">what is ADHD?</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">62</div>
+      </div>
+      <div class="chips"><span class="chip vis">A Day in the Life of a Nurse</span><span class="chip vis">A Day in the Life of a Pastor</span><span class="chip vis">A Day in the Life of a Pediatrician</span><span class="chip vis">A Day in the Life of a Social Worker</span><span class="chip vis">A Day in the Life of a Therapist</span><span class="chip vis">A Day in the Life of an Emergency Room Doctor</span><span class="chip vis">Abnormal Psychology</span><span class="chip vis">Apologetics: Creation vs. Evolution</span><span class="chip vis">Autism Spectrum: Atypical Minds in a Stereotypical World</span><span class="chip vis">Becoming a Christian Missionary</span><span class="chip vis">Biblical View of Marriage</span><span class="chip vis">Boosting Your Emotional Intelligence</span><span class="chip vis">Careers in Life Science</span><span class="chip vis">Carl Jung's Theory on Introverts, Extraverts, and Ambiverts</span><span class="chip vis">Child Development</span><span class="chip vis">Christian Leadership</span><span class="chip vis">Christian Manhood</span><span class="chip vis">Christian Womanhood</span><span class="chip vis">Conflict Resolution</span><span class="chip vis">Early Childhood Education</span><span class="chip vis">Emotional Intelligence: How to Raise Your EQ</span><span class="chip vis">Erikson's 8 Stages of Psychosocial Development</span><span class="chip vis">Finding Your True Purpose According to the Bible</span><span class="chip vis">Guide to Disaster Preparedness</span><span class="chip vis">History of Christianity: From Jewish Roots to Global Faith</span><span class="chip vis">How Stress Affects Your Brain</span><span class="chip vis">How To Know Yourself</span><span class="chip vis">How to Get Motivated</span><span class="chip vis">How to Guarantee Your Future in Heaven</span><span class="chip vis">How to Stay Calm Under Pressure</span><span class="chip vis">How to Stop Being a People Pleaser</span><span class="chip vis">Human Rights Advocacy</span><span class="chip vis">Introduction to Psychology</span><span class="chip vis">Introduction to Theology</span><span class="chip vis">Introduction to Worldview and Philosophy</span><span class="chip vis">Life as an EMT</span><span class="chip vis">Marcus Aurelius - Stop Caring What People Think</span><span class="chip vis">Maslow's Hierarchy of Needs</span><span class="chip vis">Midwifery</span><span class="chip vis">Mindfulness for Teens</span><span class="chip vis">Piaget's Theory of Cognitive Development</span><span class="chip vis">Project-Based Learning: Community Health Initiative</span><span class="chip vis">Raise a Thinker, Not a Follower</span><span class="chip vis">Raising Free-Thinking Children</span><span class="chip vis">Self Care for Teens</span><span class="chip vis">Stoicism: How Marcus Aurelius Keeps Calm</span><span class="chip vis">Study of Original Sin</span><span class="chip vis">The Attachment Theory: How Childhood Affects Life</span><span class="chip vis">The Benefits of a Bilingual Brain</span><span class="chip vis">The Milgram Experiment</span><span class="chip vis">The Science of Better Learning: 13 Study Tips</span><span class="chip vis">The Skill of Humor</span><span class="chip vis">The Skill of Self Confidence</span><span class="chip vis">Theodor Herzl: Visionary of Modern Israel</span><span class="chip vis">Understanding the Dunning-Kruger Effect</span><span class="chip vis">Vygotsky's Theory of Cognitive Development</span><span class="chip vis">What is Bipolar Disorder?</span><span class="chip vis">What is Depression?</span><span class="chip vis">When Doubt Shakes My Faith</span><span class="chip vis">Why Does God Allow Bad Things to Happen?</span><span class="chip vis">Why Mindfulness Is a Superpower</span><span class="chip vis">World Religions</span></div>
+    </div>
+  </div>
+</div>
+<div class="world-block" id="The_Entrepreneur_World">
+  <div class="world-header" style="background:#f4a261">
+    <div class="world-emoji">💼</div>
+    <div>
+      <div class="world-name">The Entrepreneur World</div>
+      <div class="world-desc">Business · Money · Marketing · Law · Culinary · Sports Management</div>
+    </div>
+    <div class="world-counts">
+      <span class="badge exp-badge">9 Explorer</span>
+      <span class="badge vis-badge">90 Visionfinder</span>
+    </div>
+  </div>
+  <div class="world-panels">
+    <div class="panel exp-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🧭</div>
+        <div>
+          <div class="panel-title">Explorers</div>
+          <div class="panel-age">Ages 5–11</div>
+        </div>
+        <div class="panel-count">9</div>
+      </div>
+      <div class="chips"><span class="chip exp">Homesteading</span><span class="chip exp">How is Money Made?</span><span class="chip exp">Kids Describe Their Dream Job to an Illustrator</span><span class="chip exp">Otto's Tales Marathon: Let's Meet Community Helpers</span><span class="chip exp">Otto's Tales: Let's Meet a Baker</span><span class="chip exp">Otto's Tales: Let's Meet a Garbage Collector</span><span class="chip exp">Otto's Tales: Let's Meet a Police Officer</span><span class="chip exp">Otto's Tales: Let's Meet a Teacher</span><span class="chip exp">Otto's Tales: Let's Meet an Engineer</span></div>
+    </div>
+    <div class="panel vis-panel">
+      <div class="panel-header">
+        <div class="panel-icon">🔭</div>
+        <div>
+          <div class="panel-title">Visionfinders</div>
+          <div class="panel-age">Ages 12–21</div>
+        </div>
+        <div class="panel-count">90</div>
+      </div>
+      <div class="chips"><span class="chip vis">A Day in the Life of a Banker</span><span class="chip vis">A Day in the Life of a Brain Surgeon</span><span class="chip vis">A Day in the Life of a CEO</span><span class="chip vis">A Day in the Life of a Car Mechanic</span><span class="chip vis">A Day in the Life of a Chef</span><span class="chip vis">A Day in the Life of a City Planner</span><span class="chip vis">A Day in the Life of a College Professor</span><span class="chip vis">A Day in the Life of a Computer Programmer</span><span class="chip vis">A Day in the Life of a Computer Scientist</span><span class="chip vis">A Day in the Life of a Conductor</span><span class="chip vis">A Day in the Life of a Doula</span><span class="chip vis">A Day in the Life of a Farmer</span><span class="chip vis">A Day in the Life of a Firefighter</span><span class="chip vis">A Day in the Life of a Helicopter Pilot</span><span class="chip vis">A Day in the Life of a Homemaker</span><span class="chip vis">A Day in the Life of a Homeschooling Family</span><span class="chip vis">A Day in the Life of a Journalist</span><span class="chip vis">A Day in the Life of a Lawyer</span><span class="chip vis">A Day in the Life of a Marine</span><span class="chip vis">A Day in the Life of a Movie Director</span><span class="chip vis">A Day in the Life of a Plumber</span><span class="chip vis">A Day in the Life of a Politician</span><span class="chip vis">A Day in the Life of a Private Investigator</span><span class="chip vis">A Day in the Life of a Radiologist</span><span class="chip vis">A Day in the Life of a Rocket Scientist</span><span class="chip vis">A Day in the Life of a School Principal</span><span class="chip vis">A Day in the Life of a Sculptor</span><span class="chip vis">A Day in the Life of a Secret Service Agent</span><span class="chip vis">A Day in the Life of a Teacher</span><span class="chip vis">A Day in the Life of a Truck Driver</span><span class="chip vis">A Day in the Life of a Website Designer</span><span class="chip vis">A Day in the Life of a Welder</span><span class="chip vis">A Day in the Life of an Animator</span><span class="chip vis">A Day in the Life of an Artist</span><span class="chip vis">A Day in the Life of an Astrophysicist</span><span class="chip vis">A Day in the Life of an Emergency Room Doctor</span><span class="chip vis">A Day in the Life of an Engineer</span><span class="chip vis">A Day in the Life of an FBI Agent</span><span class="chip vis">A Day in the Life of an Occupational Therapist</span><span class="chip vis">Advertising & Promotion</span><span class="chip vis">African American Heroines</span><span class="chip vis">Becoming an Architect</span><span class="chip vis">Careers in Law Enforcement</span><span class="chip vis">Criminal Justice</span><span class="chip vis">Culinary Arts</span><span class="chip vis">Driver's Education</span><span class="chip vis">Entrepreneurship</span><span class="chip vis">Every Major Economic Theory Explained in 20 Minutes</span><span class="chip vis">Financial Literacy</span><span class="chip vis">Food Entrepreneurship</span><span class="chip vis">Forensic Accounting</span><span class="chip vis">Getting into an Ivy League College</span><span class="chip vis">How America's richest donate their money</span><span class="chip vis">How Does the Stock Market Work?</span><span class="chip vis">How the rich avoid paying taxes legally</span><span class="chip vis">How to Buy a Car</span><span class="chip vis">How to Buy a House</span><span class="chip vis">How to Open a Bank Account</span><span class="chip vis">How to Spot a Pyramid Scheme</span><span class="chip vis">Instagram Marketing</span><span class="chip vis">Interior Design</span><span class="chip vis">Internet Entrepreneurship</span><span class="chip vis">Introduction to Food Science</span><span class="chip vis">Investing & Stocks</span><span class="chip vis">Investment and Retirement Planning</span><span class="chip vis">Macroeconomics</span><span class="chip vis">Making Economic Decisions</span><span class="chip vis">Navigating College Admissions</span><span class="chip vis">Project Based Learning: Crime Scene Investigation</span><span class="chip vis">Project Based Learning: Culinary Anthropology</span><span class="chip vis">Project Based Learning: Cultural Anthropology Study</span><span class="chip vis">Project Based Learning: Independent Scientific Research Project</span><span class="chip vis">Project Based Learning: Mock Trial</span><span class="chip vis">Project Based Learning: Political Advocacy Campaign</span><span class="chip vis">Project Based Learning: Small Business Launch</span><span class="chip vis">Project Management</span><span class="chip vis">Real Estate Sales</span><span class="chip vis">Renting vs. Owning</span><span class="chip vis">Simple vs. Compound Interest</span><span class="chip vis">Starting a Micro Business</span><span class="chip vis">The Most Powerful Way to Think About Money</span><span class="chip vis">The Pareto Principle: The 80/20 Rule Explained</span><span class="chip vis">The Wild Ride of Economic Cycles</span><span class="chip vis">Understanding Credit</span><span class="chip vis">Understanding Taxes</span><span class="chip vis">What Is A Budget?</span><span class="chip vis">What It's Like to Be An Addiction Counselor?</span><span class="chip vis">What It's Like to Be a Nurse Practitioner?</span><span class="chip vis">What's It Like to Be a Doula?</span><span class="chip vis">What's It Like to be an Unschooler?</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="page-footer">
+  <h3>Ready to Find Your <span>Path?</span></h3>
+  <p>Take the free Pathfinder quiz and discover which World matches your passion — then we'll build your personal learning journey.</p>
+  <a href="https://mrothschild19.github.io/veritaspathfinder/" class="footer-cta">Take the Free Pathfinder Quiz →</a>
+</div>
+
+<script>
+function setFilter(mode) {
+  document.body.classList.remove('show-exp','show-vis');
+  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active-exp','active-vis'));
+  if(mode==='exp'){ document.body.classList.add('show-exp'); document.getElementById('btn-exp').classList.add('active-exp'); }
+  else if(mode==='vis'){ document.body.classList.add('show-vis'); document.getElementById('btn-vis').classList.add('active-vis'); }
+  else { document.getElementById('btn-both').classList.add('active-exp'); }
+}
+setFilter('both');
+
+function searchCourses(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.chip').forEach(chip => {
+    if(!q) { chip.classList.remove('hidden'); return; }
+    chip.classList.toggle('hidden', !chip.textContent.toLowerCase().includes(q));
+  });
+  // Hide world blocks with no visible chips
+  document.querySelectorAll('.world-block').forEach(block => {
+    const visChips = block.querySelectorAll('.chip:not(.hidden)');
+    block.style.display = (!q || visChips.length > 0) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
