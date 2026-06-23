@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academics | Limitless by Veritas Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f4f6fb; color: #1a2744; }
+
+  /* ── NAV ── */
+  .nav-stripe { background: #d6203c; height: 4px; }
+  nav {
+    background: #1a2744;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; height: 68px;
+    max-width: 100%;
+  }
+  .nav-brand { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-brand-name { font-family: 'Paytone One', sans-serif; font-size: 1.5rem; color: white; letter-spacing: -0.5px; }
+  .nav-brand-sub { font-size: 0.7rem; color: #d6203c; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .nav-links a {
+    color: #ccd6f6; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    padding: 8px 14px; border-radius: 6px; transition: background 0.2s;
+  }
+  .nav-links a:hover { background: rgba(255,255,255,0.1); }
+  .nav-links a.active { background: rgba(255,255,255,0.08); color: white; }
+  .nav-cta {
+    background: #d6203c; color: white; text-decoration: none;
+    font-size: 0.9rem; font-weight: 700; padding: 9px 20px; border-radius: 50px; margin-left: 8px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #b01830; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: white; border-bottom: 1px solid #e2e8f0;
+    padding: 12px 40px; font-size: 0.85rem; color: #64748b;
+  }
+  .breadcrumb a { color: #d6203c; text-decoration: none; font-weight: 500; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a2744 0%, #0d1b36 55%, #8b0000 100%);
+    color: white; text-align: center; padding: 72px 24px 56px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block; background: #d6203c; color: white;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15; margin-bottom: 18px; position: relative;
+  }
+  .hero h1 span { color: #d6203c; }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem); max-width: 680px; margin: 0 auto 32px;
+    opacity: 0.88; line-height: 1.75; position: relative;
+  }
+  .hero-img {
+    width: 180px; height: 180px; border-radius: 50%;
+    object-fit: cover; border: 5px solid #d6203c;
+    margin: 0 auto; display: block; position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  /* ── IS IT RIGHT SECTION ── */
+  .fit-section { background: white; padding: 64px 24px; }
+  .fit-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #d6203c; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem); color: #1a2744; margin-bottom: 10px;
+  }
+  .section-divider { width: 56px; height: 4px; background: #d6203c; border-radius: 2px; margin-bottom: 48px; }
+  .section-divider.navy { background: #1a2744; }
+
+  .fit-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px;
+  }
+  .fit-card {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,39,68,0.09);
+    border-top: 5px solid #d6203c;
+    background: #f9fafd;
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .fit-card:nth-child(even) { border-top-color: #1a2744; }
+  .fit-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(26,39,68,0.15); }
+  .fit-card-img {
+    width: 100%; height: 200px; object-fit: cover; display: block;
+    background: #eef1f8;
+  }
+  .fit-card-body { padding: 24px 26px 28px; flex: 1; }
+  .fit-card-check {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #d6203c; color: white; font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px;
+    border-radius: 20px; margin-bottom: 12px;
+  }
+  .fit-card:nth-child(even) .fit-card-check { background: #1a2744; }
+  .fit-card-title {
+    font-family: 'Paytone One', sans-serif; font-size: 1.1rem; color: #1a2744;
+    margin-bottom: 10px; line-height: 1.35;
+  }
+  .fit-card-text { font-size: 0.95rem; color: #556; line-height: 1.75; }
+
+  /* ── ENROLL BANNER ── */
+  .enroll-banner {
+    background: linear-gradient(90deg, #1a2744 0%, #d6203c 100%);
+    color: white; padding: 52px 24px; text-align: center;
+  }
+  .enroll-banner h2 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 24px;
+  }
+  .enroll-pills {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 32px;
+  }
+  .enroll-pill {
+    background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.4);
+    color: white; font-weight: 600; font-size: 0.95rem;
+    padding: 10px 24px; border-radius: 50px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .enroll-pill::before { content: '✓'; font-weight: 900; }
+  .enroll-btn {
+    display: inline-block; background: white; color: #d6203c;
+    font-weight: 700; font-size: 1.05rem; padding: 16px 44px;
+    border-radius: 50px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: transform 0.2s;
+  }
+  .enroll-btn:hover { transform: translateY(-2px); }
+
+  /* ── PBL SECTION ── */
+  .pbl-section { background: #f4f6fb; padding: 72px 24px; }
+  .pbl-inner { max-width: 1100px; margin: 0 auto; }
+  .pbl-intro {
+    background: white; border-radius: 16px; padding: 40px 44px;
+    box-shadow: 0 4px 20px rgba(26,39,68,0.08); margin-bottom: 48px;
+    border-left: 6px solid #d6203c;
+  }
+  .pbl-intro p { font-size: 1.05rem; color: #444; line-height: 1.8; }
+
+  .tracks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .track-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,39,68,0.09);
+    display: flex; flex-direction: column;
+  }
+  .track-header { padding: 28px 32px 20px; }
+  .track-header.red { background: #d6203c; }
+  .track-header.navy { background: #1a2744; }
+  .track-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+  .track-title { font-family: 'Paytone One', sans-serif; font-size: 1.3rem; color: white; line-height: 1.3; }
+  .track-body { padding: 28px 32px 32px; flex: 1; }
+  .track-body p { font-size: 0.97rem; color: #555; line-height: 1.78; margin-bottom: 20px; }
+  .track-btn {
+    display: inline-block; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+    padding: 11px 26px; border-radius: 50px; transition: transform 0.2s, opacity 0.2s;
+  }
+  .track-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .track-btn.red { background: #d6203c; color: white; }
+  .track-btn.navy { background: #1a2744; color: white; }
+
+  .pbl-steps { margin-top: 52px; }
+  .pbl-steps h3 {
+    font-family: 'Paytone One', sans-serif; font-size: 1.4rem;
+    color: #1a2744; margin-bottom: 8px; text-align: center;
+  }
+  .pbl-steps-sub { text-align: center; color: #64748b; font-size: 0.95rem; margin-bottom: 36px; }
+  .steps-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; }
+  .step {
+    flex: 1; min-width: 160px; max-width: 200px;
+    text-align: center; padding: 24px 16px; position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '→'; position: absolute; right: -8px; top: 50%;
+    transform: translateY(-50%); font-size: 1.4rem; color: #d6203c; font-weight: 900;
+  }
+  .step-circle {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: #1a2744; color: white;
+    font-family: 'Paytone One', sans-serif; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 14px; box-shadow: 0 4px 16px rgba(26,39,68,0.2);
+  }
+  .step:nth-child(even) .step-circle { background: #d6203c; }
+  .step-label { font-weight: 700; font-size: 0.9rem; color: #1a2744; line-height: 1.4; }
+
+  /* ── FOOTER STRIPE ── */
+  .footer-why {
+    background: #1a2744; color: white; padding: 56px 24px; text-align: center;
+  }
+  .footer-why h2 { font-family: 'Paytone One', sans-serif; font-size: clamp(1.4rem,3vw,2rem); margin-bottom: 14px; }
+  .footer-why h2 span { color: #d6203c; }
+  .footer-why p { max-width: 680px; margin: 0 auto 28px; opacity: 0.88; font-size: 1.05rem; line-height: 1.75; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .footer-link {
+    text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 12px 28px; border-radius: 50px;
+  }
+  .footer-link.outline { border: 2px solid rgba(255,255,255,0.4); color: white; }
+  .footer-link.outline:hover { background: rgba(255,255,255,0.1); }
+  .footer-link.fill { background: #d6203c; color: white; }
+  .footer-link.fill:hover { background: #b01830; }
+  .footer-stripe { background: #d6203c; height: 8px; }
+
+  @media (max-width: 700px) {
+    .tracks-grid { grid-template-columns: 1fr; }
+    .step:not(:last-child)::after { display: none; }
+    .fit-grid { grid-template-columns: 1fr; }
+    nav { flex-wrap: wrap; height: auto; padding: 12px 16px; gap: 8px; }
+    .nav-links { flex-wrap: wrap; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-stripe"></div>
+<nav>
+  <a href="https://limitlessacademy.org" class="nav-brand">
+    <span class="nav-brand-name">LIMITLESS</span>
+    <span class="nav-brand-sub">by Veritas Academy</span>
+  </a>
+  <div class="nav-links">
+    <a href="https://limitlessacademy.org">Home</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-academics.html" class="active">Academics</a>
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-benefits.html">Why Project-Based?</a>
+    <a href="https://mrothschild19.github.io/veritaspathfinder/">Course Finder</a>
+    <a href="https://limitlessacademy.org" class="nav-cta">Enroll Free →</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="https://limitlessacademy.org">Home</a> &rsaquo; <strong>Academics</strong>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Limitless Academics</div>
+  <h1>Is <span>Limitless</span> Right<br>for Your Family?</h1>
+  <p class="hero-sub">
+    Limitless by Veritas Academy empowers your child to pursue their passions through a quality education —
+    meeting rigorous academic standards from the comfort of your home, on a schedule that fits your life.
+  </p>
+  <img class="hero-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/3d5ae3e7f_generated_image.png" alt="Student learning online">
+</section>
+
+<!-- ONLINE SCHOOL MIGHT BE A GOOD FIT -->
+<section class="fit-section">
+  <div class="fit-inner">
+    <div class="section-label">Is This You?</div>
+    <h2 class="section-title">Online school might be a good fit if…</h2>
+    <div class="section-divider"></div>
+
+    <div class="fit-grid">
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/96a53dc49_generated_image.png" alt="Projects head first">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They jump into projects head first</div>
+          <p class="fit-card-text">Students may choose Limitless's Project-Based Learning (PBL) track — real-world experiential learning that gives them the tools they'll need to succeed beyond the classroom. PBL inspires students to use their passions to solve real-world problems.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/1140e42b2_generated_image.png" alt="Course load interests">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They want a course load that matches their interests</div>
+          <p class="fit-card-text">Middle and high school students choose elective courses from hundreds of unique classes to match their interests and goals, supported by a core curriculum aligned to rigorous academic standards.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/9c88f57e1_generated_image.png" alt="Skills beyond classroom">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They want to learn skills that go beyond the classroom</div>
+          <p class="fit-card-text">Our exclusive Environments of Success (EOS) curriculum helps students develop the behaviors and mindsets needed to thrive in school and in life — goal-setting, action planning, and consistent habits.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/ec45b3edb_generated_image.png" alt="Unique needs">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They have unique needs</div>
+          <p class="fit-card-text">Every Limitless student has the support of a teacher for one-on-one tutoring and conferencing. Whether it's advanced coursework, mastering a challenging skill, or spearheading an innovative project — we've got them.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/4bf8fb63c_generated_image.png" alt="Independence">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They seek independence</div>
+          <p class="fit-card-text">Limitless students complete independent work alongside collaborative class time — practicing skills, completing content, and developing individual projects that build real self-direction and responsibility.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/8931be29d_generated_image.png" alt="Passions">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They thrive with support for their passions</div>
+          <p class="fit-card-text">In our EOS curriculum, students learn to identify and set goals, create action plans, and develop consistent behaviors that guarantee consistent results — empowering them to pursue what they love most.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/a13460116_generated_image.png" alt="Travel schedule">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">Your family travels or has an atypical schedule</div>
+          <p class="fit-card-text">Virtual school is far more flexible than a traditional environment. Students can access their school 24/7 from any location with internet access — without missing a beat academically.</p>
+        </div>
+      </div>
+
+      <div class="fit-card">
+        <img class="fit-card-img" src="https://media.base44.com/images/public/6a29998ad76d8ed3d3b24202/ec45b3edb_generated_image.png" alt="Feedback">
+        <div class="fit-card-body">
+          <div class="fit-card-check">✓ Great Fit</div>
+          <div class="fit-card-title">They do well with regular feedback</div>
+          <p class="fit-card-text">Middle and high school students attend weekly advisory sessions offering guidance for working online — staying on track, asking questions, and building the habits that lead to long-term success.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ENROLL BANNER -->
+<section class="enroll-banner">
+  <h2>Ready to Enroll in Limitless?</h2>
+  <div class="enroll-pills">
+    <div class="enroll-pill">Tuition-free for qualifying families</div>
+    <div class="enroll-pill">Full- &amp; part-time enrollment</div>
+    <div class="enroll-pill">Schedule flexibility</div>
+    <div class="enroll-pill">Grades K–12</div>
+  </div>
+  <a href="https://limitlessacademy.org" class="enroll-btn">Get Enrollment Info →</a>
+</section>
+
+<!-- PBL SECTION -->
+<section class="pbl-section">
+  <div class="pbl-inner">
+    <div class="section-label">Our Approach</div>
+    <h2 class="section-title">Project-Based Learning</h2>
+    <div class="section-divider"></div>
+
+    <div class="pbl-intro">
+      <p>Project-Based Learning (PBL) is a teaching method that inspires students to use their passions and what they've learned on their educational journey to solve real-world problems. PBL encourages the idea that <strong>the world needs what each student has to offer.</strong> This approach allows students opportunities for real-world experiential learning that gives them the tools they'll need to succeed beyond the classroom.</p>
+    </div>
+
+    <p style="text-align:center; font-size:1.05rem; color:#555; margin-bottom:36px; font-weight:500;">Limitless students may pursue their education along one of two offered tracks.</p>
+
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-header navy">
+          <div class="track-num">Track 01</div>
+          <div class="track-title">Traditional Course-Based Learning</div>
+        </div>
+        <div class="track-body">
+          <p>Limitless offers a wide variety of core content courses as well as hundreds of electives for middle and high school students. Students follow a structured curriculum aligned to academic standards while choosing electives that match their interests and future goals.</p>
+          <a href="https://limitlessacademy.org" class="track-btn navy">View Course Catalog →</a>
+        </div>
+      </div>
+      <div class="track-card">
+        <div class="track-header red">
+          <div class="track-num">Track 02</div>
+          <div class="track-title">Project-Based Learning Track</div>
+        </div>
+        <div class="track-body">
+          <p>Students meet required learning standards through our project-based model. PBL begins with student interests, moves through idea development and learning experiences, then into hands-on activities that meet content standards. It develops collaboration, research, community involvement, and real-life skills.</p>
+          <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-benefits.html" class="track-btn red">Why Project-Based? →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PBL PROCESS STEPS -->
+    <div class="pbl-steps">
+      <h3>How PBL Works</h3>
+      <p class="pbl-steps-sub">A structured journey from passion to real-world impact</p>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-circle">1</div>
+          <div class="step-label">Identify Student Interests</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">2</div>
+          <div class="step-label">Idea Development</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">3</div>
+          <div class="step-label">Learning Experiences</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">4</div>
+          <div class="step-label">Hands-On Activities</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">5</div>
+          <div class="step-label">Real-World Impact</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-why">
+  <h2>Ready to Go <span>Limitless?</span></h2>
+  <p>Your child deserves an education as unique as they are. Explore our programs, find their perfect learning path, and enroll today.</p>
+  <div class="footer-links">
+    <a href="https://mrothschild19.github.io/ggi-course-wrapper/limitless-benefits.html" class="footer-link outline">Benefits of PBL</a>
+    <a href="https://mrothschild19.github.io/veritaspathfinder/" class="footer-link outline">Course Finder</a>
+    <a href="https://limitlessacademy.org" class="footer-link fill">Enroll Free →</a>
+  </div>
+</section>
+<div class="footer-stripe"></div>
+
+</body>
+</html>
